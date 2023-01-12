@@ -52,17 +52,6 @@ export function Register({navigation}) {
     W100: {
       width: width,
     },
-    W50: {
-      // flexWrap: 'wrap',
-      // flexGrow: 1,
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: '100%',
-      // borderStyle: 'solid',
-      // borderColor: 'red',
-      // borderWidth: 1,
-      // overflow:
-    },
     W70: {
       width: width*0.7,
     },
@@ -120,6 +109,20 @@ export function Register({navigation}) {
       display: 'flex',
       // flexShrink: ,
     },
+    
+    containerPref: {
+      // flexWrap: 'wrap',
+      // flexGrow: 1,
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      width: '100%',
+      // borderStyle: 'solid',
+      // borderColor: 'red',
+      // borderWidth: 1,
+      // overflow:
+    },
+
     button: {
       backgroundColor: '#07CDF9',
       padding: 15,
@@ -363,19 +366,14 @@ export function Register({navigation}) {
               </Text>
 
               <View style={styles.fRow}>
-
-                <LinearGradient
-                  start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-                  colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.inputN, styles.my10,
-                              {width: width*0.17}, {padding: 15},)}>
-                  <TouchableOpacity style={Object.assign({}, 
-                              {borderColor: gender == 'female' ? 'transparent' : '#ccc'})}
-                        onPress={()=>changeGender('female')}>
-                    <Text style={styles.txtCenter}>
-                      Female
-                    </Text>
-                  </TouchableOpacity>
-                </LinearGradient>
+                <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
+                            {width: width*0.17}, {padding: 15},
+                            {borderColor: gender == 'female' ? '#07CDF9' : '#ccc'})}
+                      onPress={()=>changeGender('female')}>
+                  <Text style={styles.txtCenter}>
+                    Female
+                  </Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
                             {width: width*0.17}, {marginLeft: 8}, {marginRight: 8}, {padding: 15},
@@ -450,9 +448,7 @@ export function Register({navigation}) {
               Before we start, choose your preferences.
             </Text>
 
-            <View style={Object.assign({}, styles.fRow, styles.W50,
-                          {fontWeight: 'bold'},
-                          {alignSelf: 'flex-start'})}>
+            <View style={Object.assign({}, styles.fRow, styles.containerPref,)}>
               {preferences.map((preference) => (
                       <TouchableOpacity style={Object.assign({}, styles.inputPref, styles.my10, 
                                               {padding: 15},
@@ -467,20 +463,23 @@ export function Register({navigation}) {
             </View>
 
             <View style={styles.my10}>
-              <TouchableOpacity
-                onPress={onPressButton}
-                style={styles.button}
-                type="click">
-                  <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
-                    Continue
-                  </Text>
-              </TouchableOpacity>
+              <LinearGradient
+                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.mt10)}>
+
+                  <TouchableOpacity
+                    onPress={onPressButton}
+                    type="click">
+                      <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
+                        Continue
+                      </Text>
+                  </TouchableOpacity>
+              </LinearGradient>
 
               <TouchableOpacity
                 onPress={onPressButton}
-                style={Object.assign({}, styles.mt10, styles.buttonTransp)}
                 type="click">
-                  <Text style={Object.assign({}, styles.txtCenter)}
+                  <Text style={Object.assign({}, styles.button, styles.mt10, styles.buttonTransp, styles.txtCenter)}
                         onPress={()=>goBack()}>
                     Skip for now
                   </Text>

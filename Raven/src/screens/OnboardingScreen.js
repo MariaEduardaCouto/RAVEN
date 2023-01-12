@@ -1,21 +1,16 @@
-<<<<<<< HEAD
-// import React from 'react';
-// import { SafeAreaView, StyleSheet, Dimensions, StatusBar, FlatList, View, Image, Text } from 'react-native';
-// import { LinearGradient } from 'expo-linear-gradient';
-// import { TouchableOpacity } from 'react-native-gesture-handler';
-=======
 import React from 'react';
 import { SafeAreaView, StyleSheet, Dimensions, StatusBar, View, Image, Button, Text, Touchable } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Swiper from 'react-native-swiper'
 import Svg  from 'react-native-svg';
-import { render } from 'react-dom';
+
 import { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Slide from '../assets/img/imgSlide1.svg'
->>>>>>> d0da88ae38798cf3a3daec3890c40f6f364ee348
-
-// const {width, height} = Dimensions.get('window');
+import Slide1 from '../assets/img/imgSlide1.svg'
+import Slide2 from '../assets/img/imgSlide2.svg'
+import Slide3 from '../assets/img/imgSlide3.svg'
+import Slide4 from '../assets/img/imgSlide4.svg'
+const {width, height} = Dimensions.get('window');
 
 
 
@@ -48,121 +43,6 @@ import Slide from '../assets/img/imgSlide1.svg'
 // ];
 
 
-<<<<<<< HEAD
-
-// const Slide = ({item}) => {
-//     return (
-//         <View style={{alignItems:'center'}}>
-//             <Image source={item.image} style={{height:'75%', width, resizeMode:'contain'}}/>
-//             <Text style={styles.title}>{item.title}</Text>
-//             <Text style={styles.subtitle}>{item.subtitle}</Text>
-//         </View>
-//     )
-// }
-
-// export function OnboardingScreen({navigation}) {
-//     const [currentSlideIndex, setCurrentSlideIndex ] = React.useState(0)
-//     const Footer = () =>{
-//         return (
-//             <View 
-//             style={{
-//                 height: height * 0.25, 
-//                 justifyContent:"space-between",
-//                 paddingHorizontal:20
-//             }}>
-//                 {/* <LinearGradient
-//                 colors={['#4c669f', '#3b5998', '#192f6a']}
-//                 start={{ x: 0, y: 0 }}
-//                 end={{ x: 1, y: 1 }}
-//                 style={styles.button}
-//                 >
-//                 <Text style={styles.buttonText}>Sign in with Facebook</Text>
-//                 </LinearGradient> */}
-                
-//                 <View 
-//                 style={{
-//                     flexDirection:'row', 
-//                     justifyContent:'center',
-//                     marginTop:20
-//                     }}>
-//                         {slides.map((_,index)=>(
-//                             <View key={index} style={[styles.indicator, currentSlideIndex == index &&{
-//                                 backgroundColor:'#07CDF9',
-                                
-//                             },
-//                         ]}
-//                         />
-//                         ))}
-//                     </View>
-//                     <View style = {{marginBottom:20}}>
-//                         <View style = {{flexDirection:'row'}}>
-//                             <TouchableOpacity style={styles.btnSkip}>
-//                                 <Text>Skip</Text>
-//                             </TouchableOpacity>
-//                         </View>
-//                     </View>
-//             </View>
-//         )
-//     }
-
-//     return (
-//     <SafeAreaView style={styles.backgroud}>
-//         <StatusBar backgroundColor='#FDFDFD'/>
-//         <FlatList
-//         data={slides} 
-//         contentContainerStyle={{height:height * 0.75}} 
-//         horizontal
-//         showsHorizontalScrollIndicator={false}
-//         pagingEnabled
-//         renderItem={({item}) => <Slide item={item}/>}
-//         />
-//         <Footer/>
-//     </SafeAreaView>)
-// }
-
-// const styles = StyleSheet.create({
-//     backgroud:{
-//         flex:1,
-//         backgroundColor: '#FDFDFD'},
-//     title:{
-//         color:'#000000',
-//         fontSize:22,
-//         fontWeight:'bold',
-//         marginTop:20,
-//         textAlign:'center',        
-//     },
-//     subtitle:{
-//         color:'#000',
-//         fontSize:13,
-//         marginTop:10,
-//         maxWidth:'70%',
-//         textAlign:'center',
-//         lineHeight:23,
-//     },
-//     indicator:{
-//         height:13,
-//         width:13,
-//         backgroundColor:'transparent',
-//         marginHorizontal:3,
-//         borderRadius:7,
-//         borderWidth:1,
-//         borderColor:'#07CDF9'
-//         // borderColor: (
-//         //     <LinearGradient
-//         //         colors={['#07CDF9','#5508D2']}
-//         //         start={[0,0]}
-//         //         end={[1,0]}
-//         //     >
-//         //     </LinearGradient>
-//         // )
-
-//     },
-//     btnSkip:{
-//         flex:1,
-//         color:'black'
-//     }
-// })
-=======
 const styles = StyleSheet.create({
 
     allWreapper:{
@@ -184,7 +64,8 @@ const styles = StyleSheet.create({
                 fontWeight:'bold',
                 marginTop:100,
                 textAlign:'center',  
-                fontFamily:"Quicksand-Bold"
+                fontFamily:"Quicksand-Bold",
+                marginBottom:50
             },
     
     subtitle:{
@@ -194,6 +75,7 @@ const styles = StyleSheet.create({
                 maxWidth:'70%',
                 textAlign:'center',
                 lineHeight:23,
+                marginTop:80
                 
             },
     activeDot:{ 
@@ -224,6 +106,7 @@ const styles = StyleSheet.create({
                 padding: 15,
                 borderRadius: 18,
                 width: width*0.7,
+                marginTop:30
                
             }
   })
@@ -257,14 +140,13 @@ const styles = StyleSheet.create({
                     colors={['#07CDF9', '#5508D2']}
                     style={styles.activeDot}
                     ></LinearGradient>}
-                dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 3 ,borderWidth:1}} />}
+                dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 6 ,borderWidth:1}} />}
             >
                 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Find interesting places</Text>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
                         
-                            {/* <Slide /> */}
+                            <Slide1 style={{height:30, width: 30, resizeMode:'contain'}}/>
                        
                         
                     <Text style={styles.subtitle}>Possibility of viewing a vast list of specific geographic points, as well as filtering them</Text>
@@ -272,19 +154,18 @@ const styles = StyleSheet.create({
 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Save your favorite locations</Text>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                        <Slide2 style={{height:30, width: 30, resizeMode:'contain'}}/>
                     <Text style={styles.subtitle}>You can save whatever location in order to provide prior planning at a distance</Text>
                 </View>
 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Reward system</Text>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                        <Slide3 style={{height:30, width: 30, resizeMode:'contain'}}/>
                     <Text style={styles.subtitle}>You can get rewards and higher your progress by simply discovering new places and having fun</Text>
                 </View>
 
                 <View style={styles.slides}>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
-
+                        <Slide4 style={{height:30, width: 30, resizeMode:'contain', marginTop:120}}/>
                     <Text style={styles.subtitle}>That’s it. Are you ready to start?</Text>
                     <LinearGradient onPress={handleButtonGetStarted}
                     start={{x: 0, y: 0}}
@@ -292,7 +173,7 @@ const styles = StyleSheet.create({
                     colors={['#07CDF9', '#5508D2']}
                     style={styles.button}
                     >
-                        <Text style={{ textAlign: 'center' }}>
+                        <Text style={{ textAlign: 'center', color:'white' }}>
                             Get started
                         </Text>
                     </LinearGradient>
@@ -303,6 +184,3 @@ const styles = StyleSheet.create({
       )
             
   }
-   
-  
->>>>>>> d0da88ae38798cf3a3daec3890c40f6f364ee348

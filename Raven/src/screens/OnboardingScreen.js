@@ -1,7 +1,12 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Dimensions, StatusBar, FlatList, View, Image, Text } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { SafeAreaView, StyleSheet, Dimensions, StatusBar, View, Image, Button, Text, Touchable } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Swiper from 'react-native-swiper'
+import Svg  from 'react-native-svg';
+import { render } from 'react-dom';
+import { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import imgSlide1 from '../assets/img/imgSlide1.svg';
 
 const {width, height} = Dimensions.get('window');
 
@@ -36,108 +41,130 @@ const slides = [
 ];
 
 
-
-const Slide = ({item}) => {
-    return (
-        <View style={{alignItems:'center'}}>
-            <Image source={item.image} style={{height:'75%', width, resizeMode:'contain'}}/>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.subtitle}>{item.subtitle}</Text>
-        </View>
-    )
-}
-
-export function OnboardingScreen({navigation}) {
-    const [currentSlideIndex, setCurrentSlideIndex ] = React.useState(0)
-    const Footer = () =>{
-        return (
-            <View 
-            style={{
-                height: height * 0.25, 
-                justifyContent:"space-between",
-                paddingHorizontal:20
-            }}>
-                
-                <View 
-                style={{
-                    flexDirection:'row', 
-                    justifyContent:'center',
-                    marginTop:20
-                    }}>
-                        {slides.map((_,index)=>(
-                            <View key={index} style={[styles.indicator, currentSlideIndex == index &&{
-                                backgroundColor:'#07CDF9',
-                                
-                            },
-                        ]}
-                        />
-                        ))}
-                    </View>
-                    <View style = {{marginBottom:20}}>
-                        <View style = {{flexDirection:'row'}}>
-                            <TouchableOpacity style={styles.btnSkip}>
-                                <Text>Skip</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-            </View>
-        )
-    }
-
-    return (
-    <SafeAreaView style={styles.backgroud}>
-        <StatusBar backgroundColor='#FDFDFD'/>
-        <FlatList
-        data={slides} 
-        contentContainerStyle={{height:height * 0.75}} 
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled
-        renderItem={({item}) => <Slide item={item}/>}
-        />
-        <Footer/>
-    </SafeAreaView>)
-}
-
 const styles = StyleSheet.create({
-    backgroud:{
-        flex:1,
-        backgroundColor: '#FDFDFD'},
-    title:{
-        color:'#000000',
-        fontSize:22,
-        fontWeight:'bold',
-        marginTop:20,
-        textAlign:'center',        
-    },
-    subtitle:{
-        color:'#000',
-        fontSize:13,
-        marginTop:10,
-        maxWidth:'70%',
-        textAlign:'center',
-        lineHeight:23,
-    },
-    indicator:{
-        height:13,
-        width:13,
-        backgroundColor:'transparent',
-        marginHorizontal:3,
-        borderRadius:7,
-        borderWidth:1,
-        borderColor:'#07CDF9'
-        // borderColor: (
-        //     <LinearGradient
-        //         colors={['#07CDF9','#5508D2']}
-        //         start={[0,0]}
-        //         end={[1,0]}
-        //     >
-        //     </LinearGradient>
-        // )
 
+    allWreapper:{
+        height: height,
+        flexDirection: 'column',
+        alignItems:'center',
+        justifyContent: 'center'
     },
-    btnSkip:{
-        flex:1,
-        color:'black'
+    wrapper: {
+    },
+    slide1: {
+      flex: 1,
+    //   justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#FDFDFD'
+    },
+      title:{
+                color:'#000000',
+                fontSize:24,
+                fontWeight:'bold',
+                marginTop:20,
+                textAlign:'center',  
+                fontFamily:"Quicksand-Bold"
+            },
+    
+    subtitle:{
+                color:'#717171',
+                fontSize:20,
+                marginTop:10,
+                maxWidth:'70%',
+                textAlign:'center',
+                lineHeight:23,
+                
+            },
+    activeDot:{ 
+                backgroundColor: 'transparent',
+                borderColor:'transparent', 
+                width: 14, 
+                height: 14, 
+                borderRadius: 7, 
+                marginLeft: 5, 
+                marginRight: 5, 
+                marginTop: 3, 
+                marginBottom: 3 ,
+                borderWidth:1 
+            },
+            dot:{ 
+                backgroundColor: 'transparent',
+                borderColor:'transparent', 
+                width: 13, 
+                height: 13, 
+                borderRadius: 9, 
+                marginLeft: 5, 
+                marginRight: 5, 
+                marginTop: 3, 
+                marginBottom: 3 ,
+                borderWidth:1 
+            },
+            button:{
+                padding: 15,
+                borderRadius: 18,
+                width: width*0.7,
+            }
+  })
+
+  export function OnboardingScreen({navigation}){
+    const [currentPage, setCurrentPage] = useState(1)
+    const [countSlide, setCountSlide] = useState(0)
+   
+
+    function handleSlideChange(swiper){
+        // setCurrentPage(swiper.activeIndex + 1);
+        if (countSlide > 3) {
+            setCountSlide(0)
+        } else {
+            setCountSlide(countSlide+1)
+        }
     }
-})
+
+    const handleButtonGetStarted = () => {
+        //Ação do botão
+    }
+
+
+     
+      return (
+        <View style={styles.allWreapper}>
+            <Swiper style={styles.wrapper} showsButtons={false} loop={false} index={0} autoplay={false} onMomentumScrollEnd={(e) => handleSlideChange(e)}
+                activeDot={<LinearGradient
+                    start={{x: 0, y: 0}}
+                    end={{x: 1, y: 0}}
+                    colors={['#07CDF9', '#5508D2']}
+                    style={styles.activeDot}
+                    ></LinearGradient>}
+                dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 3 ,borderWidth:1}} />}
+            >
+            {slides.map((slide) => (
+                    <View style={styles.slide1}>
+                        <Text style={styles.title}>{slide.title}</Text>
+                        <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/>
+                        {/* <imgSlide1 /> */}
+                    <Text style={styles.subtitle}>{slide.subtitle}</Text>
+                    
+                    
+                    <LinearGradient onPress={handleButtonGetStarted}
+                    start={{x: 0, y: 0}}
+                    end={{x: 1, y: 0}}
+                    colors={['#07CDF9', '#5508D2']}
+                    style={Object.assign({}, styles.button,
+                            { display: countSlide == 3 ? "flex" : "none" })}
+                    >
+                        <Text style={{ textAlign: 'center' }}>
+                            Get started
+                        </Text>
+                    </LinearGradient>
+                </View>
+                
+                    ))}
+                    
+            </Swiper>
+        </View>
+    
+      )
+            
+  }
+   
+  

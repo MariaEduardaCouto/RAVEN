@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler'
 import React from 'react';
 import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
 // import locations from './data/locations.json'
@@ -6,7 +7,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Svg, { G, Path } from 'react-native-svg';
+// import Svg, { G, Path } from 'react-native-svg';
 const Tab = createBottomTabNavigator(); 
+// import { OnboardingScreen } from './src/screens/OnboardingScreen';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './src/assets/img/homeButton.svg';
 import Saved from './src/assets/img/savedButton.svg';
@@ -16,6 +20,18 @@ import Search from './src/assets/img/searchIcon.svg'
 
 const Stack = createNativeStackNavigator();
 
+// const Stack = createNativeStackNavigator();
+
+// export default function App() {
+//     return (
+//       <NavigationContainer>
+//         <Stack.Navigator screenOptions = {{headerShown: false}}>
+//           <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+//           {/* <Stack.Screen name="LoginScreen" component={LoginScreen}/> */}
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     )
+// }
 export default function HomepageScreen() {
     return (
       <NavigationContainer>
@@ -181,6 +197,8 @@ const BadgesScreen = ({navigation}) => {
       </LinearGradient>
   )
 }
+
+
 
 
 // export default Homepage;

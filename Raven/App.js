@@ -7,11 +7,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import Svg, { G, Path } from 'react-native-svg';
 const Tab = createBottomTabNavigator(); 
 
+<<<<<<< HEAD
 import Home from './src/assets/img/homeButton.svg';
 import Saved from './src/assets/img/savedButton.svg';
 import Nearby from './src/assets/img/nearbyButton.svg';
 import Badges from './src/assets/img/badgesButton.svg';
 import Search from './src/assets/img/searchIcon.svg'
+=======
+
+const Stack = createNativeStackNavigator();
+>>>>>>> d0da88ae38798cf3a3daec3890c40f6f364ee348
 
 export default function HomepageScreen() {
     return (

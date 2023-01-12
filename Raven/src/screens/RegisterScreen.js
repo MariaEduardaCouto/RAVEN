@@ -10,6 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+import LinearGradient from 'react-native-linear-gradient';
 
 export function Register({navigation}) {
   const [screen, setScreen] = useState(1);
@@ -25,7 +26,7 @@ export function Register({navigation}) {
   const [username, setUsername] = useState('');
   const [gender, setGender] = useState('female')
 
-  const [userWrong, setUserWrong] = useState(false);
+  // VARIÁVEIS QUE FAZEM OS INPUTS FICAREM, ou não, COM BORDA VERMELHA
   const [pwWrong, setPwWrong] = useState(false);
   const [cPwWrong, setCPwWrong] = useState(false);
   const [emailWrong, setEmailWrong] = useState(false);
@@ -33,6 +34,10 @@ export function Register({navigation}) {
   const [usernameWrong, setUsernameWrong] = useState(false);
   const [nameWrong, setNameWrong] = useState(false);
   // const [cbWrong, setCbWrong] = useState(false);
+
+  const preferencesArray = ['Nature','Museums','Monuments','Movie theaters','Restaurants','Shoppings','Libraries/Bookshops','Hiking','Beach','Sunset'];
+  const [preferences, setPreferences] = useState(preferencesArray);
+  const [chosenPref, setChosenPref] = useState([])
 
   const [isSelected, setSelection] = useState(false);
 
@@ -46,6 +51,17 @@ export function Register({navigation}) {
     },
     W100: {
       width: width,
+    },
+    W50: {
+      // flexWrap: 'wrap',
+      // flexGrow: 1,
+      display: 'flex',
+      flexWrap: 'wrap',
+      width: '100%',
+      // borderStyle: 'solid',
+      // borderColor: 'red',
+      // borderWidth: 1,
+      // overflow:
     },
     W70: {
       width: width*0.7,
@@ -92,10 +108,31 @@ export function Register({navigation}) {
       textAlign: 'center',
       borderColor: '#ccc'
     },
+    inputPref: {
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderRadius: 25,
+      backgroundColor: '#fff',
+      textAlign: 'center',
+      borderColor: '#ccc',
+
+      minWidth: 100,
+      display: 'flex',
+      // flexShrink: ,
+    },
     button: {
       backgroundColor: '#07CDF9',
       padding: 15,
       borderRadius: 18,
+    },
+    buttonTransp: {
+      backgroundColor: 'transparent',
+      borderStyle: 'solid',
+      padding: 15,
+      borderRadius: 18,
+      borderWidth: 1,
+      borderColor: '#07CDF9',
+      backfaceVisibility:''
     },
 
     div: {
@@ -118,8 +155,9 @@ export function Register({navigation}) {
       textAlign: 'center',
     },
     txtUnderlined: {
-      borderStyle: 'solid',
-      borderBottomWidth: 1,
+      textDecorationLine: 'underline',
+      // borderStyle: 'solid',
+      // borderBottomWidth: 1,
     }
   });
 
@@ -165,6 +203,29 @@ export function Register({navigation}) {
 
   function changeGender(sex) {
     setGender(sex)
+  }
+
+  /**
+   * Function that adds or removes user's preferences depending on his clicks
+   * @param {*} giveOrTake variable that carries a true/false value (if true, then it will add the preference to an array, otherwise it will remove)
+   * @param {*} preference variable that carries the preference
+   */
+  function addPref(preference) {
+    if (chosenPref.includes(preference)) {
+      setChosenPref((current) =>
+        current.filter((pref) => pref !== preference)
+      )
+    } else {
+      setChosenPref(current => [...current, preference])
+    }
+  }
+
+  function goBack() {
+    setScreen(screen-1)
+  }
+
+  function getWidth(e) {
+    const {x, y, height, width} = e.nativeEvent.layout;
   }
 
   if (screen == 1) {
@@ -222,16 +283,18 @@ export function Register({navigation}) {
                 </Text>
             </View>
   
-            <View style={styles.my10}>
+            <LinearGradient
+              start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+              colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.my10)}>
               <TouchableOpacity
                 onPress={onPressButton}
-                style={styles.button}
+                style={{backgroundColor: 'transparent'}}
                 type="submit">
                   <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
                     Continue
                   </Text>
               </TouchableOpacity>
-            </View>
+            </LinearGradient>
           </View>
         </View>
       </ScrollView>
@@ -300,14 +363,19 @@ export function Register({navigation}) {
               </Text>
 
               <View style={styles.fRow}>
-                <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
-                            {width: width*0.17}, {padding: 15},
-                            {borderColor: gender == 'female' ? '#07CDF9' : '#ccc'})}
-                      onPress={()=>changeGender('female')}>
-                  <Text style={styles.txtCenter}>
-                    Female
-                  </Text>
-                </TouchableOpacity>
+
+                <LinearGradient
+                  start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                  colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.inputN, styles.my10,
+                              {width: width*0.17}, {padding: 15},)}>
+                  <TouchableOpacity style={Object.assign({}, 
+                              {borderColor: gender == 'female' ? 'transparent' : '#ccc'})}
+                        onPress={()=>changeGender('female')}>
+                    <Text style={styles.txtCenter}>
+                      Female
+                    </Text>
+                  </TouchableOpacity>
+                </LinearGradient>
 
                 <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
                             {width: width*0.17}, {marginLeft: 8}, {marginRight: 8}, {padding: 15},
@@ -345,23 +413,82 @@ export function Register({navigation}) {
             </View>
   
             <View style={styles.my10}>
-              <TouchableOpacity
-                onPress={onPressButton}
-                style={styles.button}
-                type="submit">
-                  <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
-                    Join Raven
-                  </Text>
-              </TouchableOpacity>
+              <LinearGradient
+                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.my10)}>
+                <TouchableOpacity
+                  onPress={onPressButton}
+                  style={{backgroundColor: 'transparent'}}
+                  type="submit">
+                    <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
+                      Join Raven
+                    </Text>
+                </TouchableOpacity>
+              </LinearGradient>
 
-              <Text style={Object.assign({}, styles.txt, styles.txtCenter, styles.txtUnderlined,
+              <TouchableOpacity 
+                    onPress={() => goBack()}>
+                <Text style={Object.assign({}, styles.txt, styles.txtCenter, styles.txtUnderlined,
                           {fontWeight: 'bold'}, {marginTop: 30})}>
-                Go back
-              </Text>
+                  Go back
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       </ScrollView>
     );
+  }
+
+  if (screen == 3) {
+    return(
+      <ScrollView>
+        <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
+          <View style={Object.assign({}, styles.W70)}>
+            <Text style={Object.assign({}, styles.txtTitle, styles.txtCenter,
+                        {fontWeight: 'bold'})}>
+              Before we start, choose your preferences.
+            </Text>
+
+            <View style={Object.assign({}, styles.fRow, styles.W50,
+                          {fontWeight: 'bold'},
+                          {alignSelf: 'flex-start'})}>
+              {preferences.map((preference) => (
+                      <TouchableOpacity style={Object.assign({}, styles.inputPref, styles.my10, 
+                                              {padding: 15},
+                                              {borderColor: chosenPref.includes(preference) ? '#07CDF9' : '#ccc'})}
+                                        onPress={()=>addPref(preference)}>
+                        <Text numberOfLines={1} style={styles.txtCenter}> 
+                              {/* onLayout={(e)=>getWidth(e)} */}
+                          {preference}
+                        </Text>
+                      </TouchableOpacity>
+              ))}
+            </View>
+
+            <View style={styles.my10}>
+              <TouchableOpacity
+                onPress={onPressButton}
+                style={styles.button}
+                type="click">
+                  <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
+                    Continue
+                  </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={onPressButton}
+                style={Object.assign({}, styles.mt10, styles.buttonTransp)}
+                type="click">
+                  <Text style={Object.assign({}, styles.txtCenter)}
+                        onPress={()=>goBack()}>
+                    Skip for now
+                  </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    )
   }
 }

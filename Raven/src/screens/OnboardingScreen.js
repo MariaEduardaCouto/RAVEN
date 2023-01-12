@@ -6,39 +6,39 @@ import Svg  from 'react-native-svg';
 import { render } from 'react-dom';
 import { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import imgSlide1 from '../assets/img/imgSlide1.svg';
+import Slide from '../assets/img/imgSlide1.svg'
 
 const {width, height} = Dimensions.get('window');
 
 
 
-const slides = [
-    {
-        id:'1',
-        image: require('../assets/img/imgSlide1.svg'),
-        title: 'Find interesting places',
-        subtitle: 'Possibility of viewing a vast list of specific geographic points, as well as filtering them'
-    },
-    {
-        id:'2',
-        image: require('../assets/img/imgSlide2.svg'),
-        title: 'Save your favorite locations',
-        subtitle: 'You can save whatever location in order to provide prior planning at a distance'
-    },
-    {
-        id:'3',
-        image: require('../assets/img/imgSlide3.svg'),
-        title: 'Reward system',
-        subtitle: 'You can get rewards and higher your progress by simply discovering new places and having fun'
-    },
-    {
-        id:'4',
-        image: require('../assets/img/imgSlide4.svg'),
-        title: '',
-        subtitle: 'That’s it. Are you ready to start?'
-    },
+// const slides = [
+//     {
+//         id:'1',
+//         image: require('../assets/img/imgSlide1.svg'),
+//         title: 'Find interesting places',
+//         subtitle: 'Possibility of viewing a vast list of specific geographic points, as well as filtering them'
+//     },
+//     {
+//         id:'2',
+//         image: require('../assets/img/imgSlide2.svg'),
+//         title: 'Save your favorite locations',
+//         subtitle: 'You can save whatever location in order to provide prior planning at a distance'
+//     },
+//     {
+//         id:'3',
+//         image: require('../assets/img/imgSlide3.svg'),
+//         title: 'Reward system',
+//         subtitle: 'You can get rewards and higher your progress by simply discovering new places and having fun'
+//     },
+//     {
+//         id:'4',
+//         image: require('../assets/img/imgSlide4.svg'),
+//         title: '',
+//         subtitle: 'That’s it. Are you ready to start?'
+//     },
     
-];
+// ];
 
 
 const styles = StyleSheet.create({
@@ -51,9 +51,8 @@ const styles = StyleSheet.create({
     },
     wrapper: {
     },
-    slide1: {
+    slides: {
       flex: 1,
-    //   justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#FDFDFD'
     },
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
                 color:'#000000',
                 fontSize:24,
                 fontWeight:'bold',
-                marginTop:20,
+                marginTop:100,
                 textAlign:'center',  
                 fontFamily:"Quicksand-Bold"
             },
@@ -103,6 +102,7 @@ const styles = StyleSheet.create({
                 padding: 15,
                 borderRadius: 18,
                 width: width*0.7,
+               
             }
   })
 
@@ -137,29 +137,44 @@ const styles = StyleSheet.create({
                     ></LinearGradient>}
                 dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 3 ,borderWidth:1}} />}
             >
-            {slides.map((slide) => (
-                    <View style={styles.slide1}>
-                        <Text style={styles.title}>{slide.title}</Text>
-                        <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/>
-                        {/* <imgSlide1 /> */}
-                    <Text style={styles.subtitle}>{slide.subtitle}</Text>
-                    
-                    
+                
+                <View style={styles.slides}>
+                    <Text style={styles.title}>Find interesting places</Text>
+                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                        
+                            {/* <Slide /> */}
+                       
+                        
+                    <Text style={styles.subtitle}>Possibility of viewing a vast list of specific geographic points, as well as filtering them</Text>
+                </View>
+
+                <View style={styles.slides}>
+                    <Text style={styles.title}>Save your favorite locations</Text>
+                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                    <Text style={styles.subtitle}>You can save whatever location in order to provide prior planning at a distance</Text>
+                </View>
+
+                <View style={styles.slides}>
+                    <Text style={styles.title}>Reward system</Text>
+                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                    <Text style={styles.subtitle}>You can get rewards and higher your progress by simply discovering new places and having fun</Text>
+                </View>
+
+                <View style={styles.slides}>
+                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+
+                    <Text style={styles.subtitle}>That’s it. Are you ready to start?</Text>
                     <LinearGradient onPress={handleButtonGetStarted}
                     start={{x: 0, y: 0}}
                     end={{x: 1, y: 0}}
                     colors={['#07CDF9', '#5508D2']}
-                    style={Object.assign({}, styles.button,
-                            { display: countSlide == 3 ? "flex" : "none" })}
+                    style={styles.button}
                     >
                         <Text style={{ textAlign: 'center' }}>
                             Get started
                         </Text>
                     </LinearGradient>
                 </View>
-                
-                    ))}
-                    
             </Swiper>
         </View>
     

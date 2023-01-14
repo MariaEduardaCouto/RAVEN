@@ -1,3 +1,7 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-sequences */
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {
@@ -10,37 +14,19 @@ import {
   View,
   Alert,
 } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+
 import LinearGradient from 'react-native-linear-gradient';
+// import Svg  from 'react-native-svg';
+
+import GoBackYT from "../assets/img/goBackYT.svg"
+import GoBackBL from "../assets/img/goBackBL.svg"
 
 export function EditProfile({navigation}) {
-  const [screen, setScreen] = useState(1);
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
-  const [name, setName] = useState('');
-  const [day, setDay] = useState('1');
-  const [month, setMonth] = useState('january');
-  const [year, setYear] = useState('1970');
-  const [username, setUsername] = useState('');
-  const [gender, setGender] = useState('female')
-
-  // VARIÁVEIS QUE FAZEM OS INPUTS FICAREM, ou não, COM BORDA VERMELHA
-  const [pwWrong, setPwWrong] = useState(false);
-  const [cPwWrong, setCPwWrong] = useState(false);
-  const [emailWrong, setEmailWrong] = useState(false);
-
-  const [usernameWrong, setUsernameWrong] = useState(false);
-  const [nameWrong, setNameWrong] = useState(false);
-  // const [cbWrong, setCbWrong] = useState(false);
-
   const preferencesArray = ['Nature','Museums','Monuments','Movie theaters','Restaurants','Shoppings','Libraries/Bookshops','Hiking','Beach','Sunset'];
-  const [preferences, setPreferences] = useState(preferencesArray);
-  const [chosenPref, setChosenPref] = useState([])
+//   const [preferences, setPreferences] = useState(preferencesArray);
+//   const [chosenPref, setChosenPref] = useState([])
 
-  const [isSelected, setSelection] = useState(false);
+//   const [isSelected, setSelection] = useState(false);
 
   let height = Dimensions.get('window').height;
   let width = Dimensions.get('window').width;
@@ -70,7 +56,7 @@ export function EditProfile({navigation}) {
     },
     jccAic: {
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     my10: {
       marginTop: 10,
@@ -99,16 +85,16 @@ export function EditProfile({navigation}) {
       borderColor: '#ccc'
     },
     inputPref: {
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderRadius: 25,
-      backgroundColor: '#fff',
-      textAlign: 'center',
-      borderColor: '#ccc',
+    //   borderStyle: 'solid',
+    //   borderWidth: 1,
+        borderRadius: 25,
+        backgroundColor: '#fff',
+        textAlign: 'center',
+        borderColor: '#ccc',
+        paddingHorizontal: 20,
 
-      minWidth: 100,
-      display: 'flex',
-      // flexShrink: ,
+        display: 'flex',
+        // flexShrink: ,
     },
     
     containerPref: {
@@ -149,8 +135,8 @@ export function EditProfile({navigation}) {
       color: 'darkGrey',
     },
     txtTitle: {
-      fontSize: 30,
-      color: '#232323',
+        fontSize: 30,
+        color: '#232323',
     },
     txtWhite: {
       color: '#f4f4f4',
@@ -165,330 +151,186 @@ export function EditProfile({navigation}) {
     }
   });
 
-  let onPressButton = event => {
-    event.preventDefault();
+  return(
+    <>
+        <LinearGradient
+                        start={{x: 0, y: 0}} end={{x: 0, y: 1}}
+                        colors={['#07CDF9','#5508D2']}
+                        style={{height: height*0.55, width: width, padding: 15, paddingTop: 50,
+                                alignItems: 'center'}}>
 
-    if (screen == 1) {
+            <View style={Object.assign({}, styles.W100,
+                        {textAlign: 'left', paddingLeft: 40})}>
 
-      if (isSelected &&
-          email != '' && password != '' && confirmPassword != '') {
-
-        if (password === confirmPassword) {
-          // navigation.navigate('Login', {username: username, password: password});
-
-          setScreen(screen+1);
-        } else {
-          Alert.alert(
-            "",
-            "The passwords don't match"
-          )
-
-          setPwWrong(true)
-          setCPwWrong(true)
-        }
-      } else {
-        email == '' ? setEmailWrong(true) : setEmailWrong(false)
-        password == '' ? setPwWrong(true) : setPwWrong(false)
-        confirmPassword == '' ? setCPwWrong(true) : setCPwWrong(false)
-      }
-
-    } else if (screen == 2) {
-
-      if (name != '' && username != '') {
-
-        setScreen(screen+1);
-      } else {
-        name == '' ? setNameWrong(true) : setNameWrong(false)
-        username == '' ? setUsernameWrong(true) : setUsernameWrong(false)
-      }
-
-    }
-  };
-
-  function changeGender(sex) {
-    setGender(sex)
-  }
-
-  /**
-   * Function that adds or removes user's preferences depending on his clicks
-   * @param {*} giveOrTake variable that carries a true/false value (if true, then it will add the preference to an array, otherwise it will remove)
-   * @param {*} preference variable that carries the preference
-   */
-  function addPref(preference) {
-    if (chosenPref.includes(preference)) {
-      setChosenPref((current) =>
-        current.filter((pref) => pref !== preference)
-      )
-    } else {
-      setChosenPref(current => [...current, preference])
-    }
-  }
-
-  function goBack() {
-    setScreen(screen-1)
-  }
-
-  function getWidth(e) {
-    const {x, y, height, width} = e.nativeEvent.layout;
-  }
-
-  if (screen == 1) {
-    return (
-      <ScrollView>
-        <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
-          <View style={styles.W70}>
-            <Text style={Object.assign({}, styles.txtTitle, styles.txtCenter,
-                        {fontWeight: 'bold'})}>
-              Sign up to discover Raven's AR experience.
-            </Text>
-  
-            <View>
-              <TextInput
-                style={Object.assign({}, styles.input, styles.my10,
-                        {borderColor: emailWrong ? 'red' : '#ccc'})}
-                placeholder="E-mail address"
-                value={email}
-                onChangeText={text => setEmail(text)}
-              />
+                <GoBackYT
+                    style={{resizeMode: 'contain', height: 30, width: 30}}
+                />
             </View>
-  
-            <View>
-              <TextInput
-                secureTextEntry={true}
-                style={Object.assign({}, styles.input, styles.my10,
-                  {borderColor: pwWrong ? 'red' : '#ccc'})}
-                placeholder="Password"
-                value={password}
-                onChangeText={text => setPassword(text)}
-              />
-            </View>
-  
-            <View>
-              <TextInput
-                secureTextEntry={true}
-                style={Object.assign({}, styles.input, styles.my10,
-                  {borderColor: cPwWrong ? 'red' : '#ccc'})}
-                placeholder="Confirm password"
-                value={confirmPassword}
-                onChangeText={text => setConfirmPassword(text)}
-              />
-            </View>
-  
-            <View style={Object.assign({}, styles.my10, styles.fRow, styles.W70)}>
-              <CheckBox
-                value={isSelected}
-                onValueChange={setSelection}
-                // style={styles.checkbox}
-              />
-              <Text>I agree and consent to Raven's
-                <Text style={{fontWeight: 'bold'}}> Terms of Service </Text> 
-                and 
-                <Text style={{fontWeight: 'bold'}}> Privacy Policy.</Text> 
+
+            <View style={Object.assign({}, styles.W100, styles.jccAic,
+                        {paddingLeft: 40, paddingRight: 40})}>
+
+                <View style={{backgroundColor: '#cdcdcd',
+                            width: width*0.25, height: width*0.25,
+                            borderRadius: 70}}>
+
+                </View>
+
+                <Text style={{fontWeight: 'bold', fontSize: 20}}>
+                    User
                 </Text>
-            </View>
-  
-            <LinearGradient
-              start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-              colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.my10)}>
-              <TouchableOpacity
-                onPress={onPressButton}
-                style={{backgroundColor: 'transparent'}}
-                type="submit">
-                  <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
-                    Continue
-                  </Text>
-              </TouchableOpacity>
-            </LinearGradient>
-          </View>
-        </View>
-      </ScrollView>
-    );
-  }
 
-  if (screen == 2) {
-    return (
-      <ScrollView>
-        <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
-          <View style={styles.W70}>
-            <Text style={Object.assign({}, styles.txtTitle, styles.txtCenter,
-                        {fontWeight: 'bold'})}>
-              It's almost done.
-            </Text>
-  
-            <View style={Object.assign({}, styles.mt10, {marginTop: 30})}>
-              <Text style={styles.txt}>
-                What is your first and last name?
-              </Text>
-              <TextInput
-                style={Object.assign({}, styles.input, styles.my10,
-                        {borderColor: nameWrong ? 'red' : '#ccc'})}
-                placeholder="Name"
-                value={name}
-                onChangeText={text => setName(text)}
-              />
-            </View>
-  
-            <View style={styles.mt10}>
-              <Text style={styles.txt}>
-                What is date of birth?
-              </Text>
+                <View style={{ borderStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#fff',
+                            width: '100%', marginTop: 20 }} />
 
-              <View style={styles.fRow}>
-                <TextInput
-                  style={Object.assign({}, styles.inputN, styles.my10,
-                          {width: width*0.17})}
-                  keyboardType='numeric'
-                  maxLength={31}
-                  value={day}
-                  onChangeText={text => setDay(text)}
-                />
+                <View style={{flexDirection: 'column', marginTop: 20, paddingLeft: 80}}>
 
-                <TextInput
-                  style={Object.assign({}, styles.inputN, styles.my10,
-                          {width: width*0.25}, {marginLeft: 8}, {marginRight: 8})}
-                  value={month}
-                  onChangeText={text => setMonth(text)}
-                />
-
-                <TextInput
-                  style={Object.assign({}, styles.inputN, styles.my10,
-                          {width: width*0.17})}
-                  keyboardType='numeric'
-                  maxLength={2023}
-                  value={year}
-                  onChangeText={text => setYear(text)}
-                />
-              </View>
-            </View>
-
-            <View style={styles.mt10}>
-              <Text style={styles.txt}>
-                What is your gender?
-              </Text>
-
-              <View style={styles.fRow}>
-                <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
-                            {width: width*0.17}, {padding: 15},
-                            {borderColor: gender == 'female' ? '#07CDF9' : '#ccc'})}
-                      onPress={()=>changeGender('female')}>
-                  <Text style={styles.txtCenter}>
-                    Female
-                  </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
-                            {width: width*0.17}, {marginLeft: 8}, {marginRight: 8}, {padding: 15},
-                            {borderColor: gender == 'male' ? '#07CDF9' : '#ccc'})}
-                      onPress={()=>changeGender('male')}>
-                  <Text style={styles.txtCenter}>
-                    Male
-                  </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={Object.assign({}, styles.inputN, styles.my10, 
-                            {width: width*0.17}, {padding: 15},
-                            {borderColor: gender == 'other' ? '#07CDF9' : '#ccc'})}
-                      onPress={()=>changeGender('other')}>
-                  <Text style={styles.txtCenter}>
-                    Other
-                  </Text>
-                </TouchableOpacity>
-
-              </View>
-            </View>
-  
-            <View style={styles.mt10}>
-              <Text style={styles.txt}>
-                What would you like your username to be?
-              </Text>
-
-              <TextInput
-                style={Object.assign({}, styles.input, styles.my10,
-                  {borderColor: usernameWrong ? 'red' : '#ccc'})}
-                placeholder="Username"
-                value={username}
-                onChangeText={text => setUsername(text)}
-              />
-            </View>
-  
-            <View style={styles.my10}>
-              <LinearGradient
-                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-                colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.my10)}>
-                <TouchableOpacity
-                  onPress={onPressButton}
-                  style={{backgroundColor: 'transparent'}}
-                  type="submit">
-                    <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
-                      Join Raven
-                    </Text>
-                </TouchableOpacity>
-              </LinearGradient>
-
-              <TouchableOpacity 
-                    onPress={() => goBack()}>
-                <Text style={Object.assign({}, styles.txt, styles.txtCenter, styles.txtUnderlined,
-                          {fontWeight: 'bold'}, {marginTop: 30})}>
-                  Go back
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </ScrollView>
-    );
-  }
-
-  if (screen == 3) {
-    return(
-      <ScrollView>
-        <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
-          <View style={Object.assign({}, styles.W70)}>
-            <Text style={Object.assign({}, styles.txtTitle, styles.txtCenter,
-                        {fontWeight: 'bold'})}>
-              Before we start, choose your preferences.
-            </Text>
-
-            <View style={Object.assign({}, styles.fRow, styles.containerPref,)}>
-              {preferences.map((preference) => (
-                      <TouchableOpacity style={Object.assign({}, styles.inputPref, styles.my10, 
-                                              {padding: 15},
-                                              {borderColor: chosenPref.includes(preference) ? '#07CDF9' : '#ccc'})}
-                                        onPress={()=>addPref(preference)}>
-                        <Text numberOfLines={1} style={styles.txtCenter}> 
-                              {/* onLayout={(e)=>getWidth(e)} */}
-                          {preference}
+                    <TouchableOpacity   activeOpacity={1}
+                                        style={Object.assign({}, styles.fRow, styles.W100, {alignItems: 'center'})}>
+                        <Text style={Object.assign({}, styles.txtWhite,
+                                    {fontWeight: 'bold', fontSize:15})}>
+                            Edit preferences
                         </Text>
-                      </TouchableOpacity>
-              ))}
+
+                        <GoBackYT
+                            style={{resizeMode: 'contain', height: '90%', width: 30}}
+                        />
+                    </TouchableOpacity>
+                </View>
+
+                <ScrollView
+                            horizontal={true}
+                            style={Object.assign({}, styles.fRow, styles.W100,
+                            {marginLeft: 80},)}>
+                    {preferencesArray.map((preference) => (
+                        <View style={Object.assign({}, styles.inputPref, styles.my10, 
+                                                {padding: 10, marginRight: 10},)}
+                                            >
+                                            {/* onPress={()=>addPref(preference)} */}
+                            <Text numberOfLines={1} style={styles.txtCenter}> 
+                                {/* onLayout={(e)=>getWidth(e)} */}
+                                {preference}
+                            </Text>
+                        </View>
+                    ))}
+                </ScrollView>
             </View>
+        </LinearGradient>
 
-            <View style={styles.my10}>
-              <LinearGradient
-                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-                colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.mt10)}>
+        <View
+            style={Object.assign({}, styles.bgWhite,
+                    {position: 'absolute', top: height*0.45,
+                    width: width, height: height*0.55,
+                    borderRadius: 30, padding: 30})}>
 
-                  <TouchableOpacity
-                    onPress={onPressButton}
-                    type="click">
-                      <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
-                        Continue
-                      </Text>
-                  </TouchableOpacity>
-              </LinearGradient>
+            <Text style={{fontSize: 20}}>
+                Account
+            </Text>
 
-              <TouchableOpacity
-                onPress={onPressButton}
-                type="click">
-                  <Text style={Object.assign({}, styles.button, styles.mt10, styles.buttonTransp, styles.txtCenter)}
-                        onPress={()=>goBack()}>
-                    Skip for now
-                  </Text>
-              </TouchableOpacity>
+    
+            <View style={Object.assign({}, styles.fColumn,)}>
+                {/* EDIT PROFILE */}
+                <TouchableOpacity   activeOpacity={1}
+                                    style={Object.assign({}, styles.fRow,
+                            {marginTop: 30},
+                            {justifyContent: 'space-between', alignItems: 'center'})}>
+
+                    <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                                    width: width*0.12, height: width*0.12,
+                                    }}>
+                            {/* POR IMAGEM */}
+                        </View>
+
+                        <Text style={Object.assign({}, 
+                                    {marginLeft: 20},
+                                    {display: 'flex', alignItems: 'center'})}>
+                            Edit your profile
+                        </Text>
+                    </View>
+
+                    <GoBackBL
+                        style={{resizeMode: 'contain', height: 30, width: 30}}
+                    />
+                </TouchableOpacity>
+
+                {/* CHANGE PASSWORD */}
+                <TouchableOpacity   activeOpacity={1}
+                                    style={Object.assign({}, styles.fRow,
+                            {marginTop: 20},
+                            {justifyContent: 'space-between', alignItems: 'center'})}>
+                    <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                                    width: width*0.12, height: width*0.12,
+                                    }}>
+                            {/* POR IMAGEM */}
+                        </View>
+
+                        <Text style={Object.assign({}, 
+                                    {marginLeft: 20},
+                                    {display: 'flex', alignItems: 'center'})}>
+                            Change password
+                        </Text>
+                    </View>
+
+                    <GoBackBL
+                        style={{resizeMode: 'contain', height: 30, width: 30}}
+                    />
+                </TouchableOpacity>
+
+                <View style={{flexDirection: 'row', marginTop: 20}}>
+                    <View style={{flex: 1, height: 2, backgroundColor: '#cdcdcd'}} />
+                </View>
+
+                {/* TERMS OF SERVICE */}
+                <TouchableOpacity   activeOpacity={1}
+                                    style={Object.assign({}, styles.fRow,
+                            {marginTop: 20},
+                            {justifyContent: 'space-between', alignItems: 'center'})}>
+                    <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                                    width: width*0.12, height: width*0.12,
+                                    }}>
+                            {/* POR IMAGEM */}
+                        </View>
+
+                        <Text style={Object.assign({}, 
+                                    {marginLeft: 20},
+                                    {display: 'flex', alignItems: 'center'})}>
+                            Terms of Service
+                        </Text>
+                    </View>
+
+                    <GoBackBL
+                        style={{resizeMode: 'contain', height: 30, width: 30}}
+                    />
+                </TouchableOpacity>
+
+                {/* LOG OUT */}
+                <TouchableOpacity   activeOpacity={1}
+                                    style={Object.assign({}, styles.fRow,
+                            {marginTop: 20},
+                            {justifyContent: 'space-between', alignItems: 'center'})}>
+                    <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                                    width: width*0.12, height: width*0.12,
+                                    }}>
+                            {/* POR IMAGEM */}
+                        </View>
+
+                        <Text style={Object.assign({}, 
+                                    {marginLeft: 20},
+                                    {display: 'flex', alignItems: 'center'})}>
+                            Log out
+                        </Text>
+                    </View>
+
+                    <GoBackBL
+                        style={{resizeMode: 'contain', height: 30, width: 30}}
+                    />
+                </TouchableOpacity>
             </View>
-          </View>
         </View>
-      </ScrollView>
-    )
-  }
+    </>
+  )
 }

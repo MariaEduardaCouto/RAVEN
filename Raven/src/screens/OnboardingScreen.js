@@ -3,11 +3,13 @@ import { SafeAreaView, StyleSheet, Dimensions, StatusBar, View, Image, Button, T
 import LinearGradient from 'react-native-linear-gradient';
 import Swiper from 'react-native-swiper'
 import Svg  from 'react-native-svg';
-import { render } from 'react-dom';
+
 import { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Slide from '../assets/img/imgSlide1.svg'
-
+import Slide1 from '../assets/img/imgSlide1.svg'
+import Slide2 from '../assets/img/imgSlide2.svg'
+import Slide3 from '../assets/img/imgSlide3.svg'
+import Slide4 from '../assets/img/imgSlide4.svg'
 const {width, height} = Dimensions.get('window');
 
 
@@ -62,7 +64,8 @@ const styles = StyleSheet.create({
                 fontWeight:'bold',
                 marginTop:100,
                 textAlign:'center',  
-                fontFamily:"Quicksand-Bold"
+                fontFamily:"Quicksand-Bold",
+                marginBottom:50
             },
     
     subtitle:{
@@ -72,6 +75,7 @@ const styles = StyleSheet.create({
                 maxWidth:'70%',
                 textAlign:'center',
                 lineHeight:23,
+                marginTop:80
                 
             },
     activeDot:{ 
@@ -102,6 +106,7 @@ const styles = StyleSheet.create({
                 padding: 15,
                 borderRadius: 18,
                 width: width*0.7,
+                marginTop:30
                
             }
   })
@@ -135,14 +140,13 @@ const styles = StyleSheet.create({
                     colors={['#07CDF9', '#5508D2']}
                     style={styles.activeDot}
                     ></LinearGradient>}
-                dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 3 ,borderWidth:1}} />}
+                dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 6 ,borderWidth:1}} />}
             >
                 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Find interesting places</Text>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
                         
-                            {/* <Slide /> */}
+                            <Slide1 style={{height:30, width: 30, resizeMode:'contain'}}/>
                        
                         
                     <Text style={styles.subtitle}>Possibility of viewing a vast list of specific geographic points, as well as filtering them</Text>
@@ -150,19 +154,18 @@ const styles = StyleSheet.create({
 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Save your favorite locations</Text>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                        <Slide2 style={{height:30, width: 30, resizeMode:'contain'}}/>
                     <Text style={styles.subtitle}>You can save whatever location in order to provide prior planning at a distance</Text>
                 </View>
 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Reward system</Text>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
+                        <Slide3 style={{height:30, width: 30, resizeMode:'contain'}}/>
                     <Text style={styles.subtitle}>You can get rewards and higher your progress by simply discovering new places and having fun</Text>
                 </View>
 
                 <View style={styles.slides}>
-                        {/* <Image source={slide.image} style={{height:'75%', width, resizeMode:'contain'}}/> */}
-
+                        <Slide4 style={{height:30, width: 30, resizeMode:'contain', marginTop:120}}/>
                     <Text style={styles.subtitle}>That’s it. Are you ready to start?</Text>
                     <LinearGradient onPress={handleButtonGetStarted}
                     start={{x: 0, y: 0}}
@@ -170,7 +173,7 @@ const styles = StyleSheet.create({
                     colors={['#07CDF9', '#5508D2']}
                     style={styles.button}
                     >
-                        <Text style={{ textAlign: 'center' }}>
+                        <Text style={{ textAlign: 'center', color:'white' }}>
                             Get started
                         </Text>
                     </LinearGradient>
@@ -181,5 +184,3 @@ const styles = StyleSheet.create({
       )
             
   }
-   
-  

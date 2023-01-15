@@ -28,14 +28,14 @@ export function LoginScreen({navigation}){
   const handleSubmit = () => {
     alert('login' + email + password)
 
-    login(email, password)
-      .then(({ data }) => {
-        storeToken(data.access_token);
-        // navigate to protected routes
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // login(email, password)
+    //   .then(({ data }) => {
+    //     storeToken(data.access_token);
+    //     // navigate to protected routes
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
 
   }
 

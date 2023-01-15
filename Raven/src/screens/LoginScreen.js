@@ -13,6 +13,8 @@ import RavenIcon from '../assets/img/ravenIcon-05.svg';
 let height = Dimensions.get('window').height;
 let width = Dimensions.get('window').width;
 
+
+
 export function LoginScreen({navigation}){
 
   const [email, setEmail] = useState('');
@@ -22,6 +24,20 @@ export function LoginScreen({navigation}){
   const [pwWrong, setPwWrong] = useState(false);
   const [cPwWrong, setCPwWrong] = useState(false);
   const [emailWrong, setEmailWrong] = useState(false);
+
+  const handleSubmit = () => {
+    alert('login' + email + password)
+
+    login(email, password)
+      .then(({ data }) => {
+        storeToken(data.access_token);
+        // navigate to protected routes
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
 
     return (
         <ScrollView>
@@ -60,7 +76,7 @@ export function LoginScreen({navigation}){
                         start={{x: 0, y: 0}} end={{x: 1, y: 0}}
                         colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.my10)}>
                         <TouchableOpacity
-                            onPress={''}
+                            onPress={handleSubmit}
                             style={{backgroundColor: 'transparent'}}
                             type="submit">
                             <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
@@ -133,6 +149,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 18,
         backgroundColor: '#fff',
+        color: 'black',
         paddingLeft: 30,
       },
     button: {

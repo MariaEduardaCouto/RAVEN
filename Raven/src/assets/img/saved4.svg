@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 446.55 507.76">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 22px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #000;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 35px;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        fill: url(#Gradiente_sem_nome_13);
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_13" data-name="Gradiente sem nome 13" x1="-2395.31" y1="2414.22" x2="-2395.31" y2="2412.65" gradientTransform="translate(2680.31 -1535.44) rotate(23.86) scale(.68 1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5e3f92"/>
+      <stop offset="1" stop-color="#2fbef0"/>
+    </linearGradient>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <line class="cls-4" x1="223.59" y1="16.06" x2="222.96" y2="17.5"/>
+      <polyline class="cls-3" points="223.04 158.76 284.64 17.5 419.83 17.5 323.88 237.55"/>
+      <polyline class="cls-3" points="122.65 237.55 26.72 17.5 161.91 17.5 240.69 198.22"/>
+      <circle class="cls-2" cx="223.59" cy="343.74" r="146.51"/>
+      <path class="cls-1" d="M233.28,279.6l14.24,28.84c1.58,3.2,4.64,5.43,8.18,5.94l31.83,4.63c8.91,1.29,12.46,12.24,6.02,18.52l-23.03,22.45c-2.56,2.49-3.73,6.09-3.12,9.61l5.44,31.7c1.52,8.87-7.79,15.63-15.75,11.45l-28.47-14.97c-3.16-1.66-6.94-1.66-10.11,0l-28.47,14.97c-7.97,4.19-17.28-2.58-15.75-11.45l5.44-31.7c.6-3.52-.56-7.12-3.12-9.61l-23.03-22.45c-6.44-6.28-2.89-17.23,6.02-18.52l31.83-4.63c3.54-.51,6.59-2.74,8.18-5.94l14.24-28.84c3.98-8.07,15.49-8.07,19.47,0Z"/>
+    </g>
+  </g>
+</svg>

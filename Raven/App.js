@@ -56,7 +56,13 @@ export default function App() {
                 name="Home"
                 component={HomepageScreen}
                 options={{
-                tabBarLabel: 'Home',
+                tabBarLabel: ({focused, color, size}) => {
+                    if (focused) {
+                        return <Text>Home</Text>
+                    } else {
+                        return <Text></Text>
+                    } 
+                },
                 tabBarIcon: ({ focused, color, size }) => {
                     if (focused) {
                         return <ActiveHome/>
@@ -73,7 +79,13 @@ export default function App() {
                 name="Saved"
                 component={SavedScreen} 
                 options={{
-                tabBarLabel: 'Saved',
+                    tabBarLabel: ({focused, color, size}) => {
+                        if (focused) {
+                            return <Text>Saved</Text>
+                        } else {
+                            return <Text></Text>
+                        } 
+                    },
                 tabBarIcon: ({ focused, color, size,}) => {
                     if (focused) {
                         return <ActiveSaved/>
@@ -87,7 +99,13 @@ export default function App() {
                 name="Nearby"
                 component={NearbyScreen}
                 options={{
-                tabBarLabel: 'Nearby',
+                    tabBarLabel: ({focused, color, size}) => {
+                        if (focused) {
+                            return <Text>Nearby</Text>
+                        } else {
+                            return <Text></Text>
+                        } 
+                    },
                 tabBarIcon: ({ focused, color, size }) => {
                     if (focused) {
                         return <ActiveNearby/>
@@ -101,7 +119,13 @@ export default function App() {
                 name="Badges"
                 component={BadgesScreen}
                 options={{
-                tabBarLabel: 'Badges',
+                    tabBarLabel: ({focused, color, size}) => {
+                        if (focused) {
+                            return <Text>Badges</Text>
+                        } else {
+                            return <Text></Text>
+                        } 
+                    },
                 tabBarIcon: ({ focused, color, size }) => {
                     if (focused) {
                         return <ActiveBadges/>

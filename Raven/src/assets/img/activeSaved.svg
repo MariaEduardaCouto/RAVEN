@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308.64 474.49">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Gradiente_sem_nome_45);
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_45" data-name="Gradiente sem nome 45" x1="154.32" y1="237.24" x2="154.32" y2="-70.9" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5e3f92"/>
+      <stop offset="1" stop-color="#2fbef0"/>
+    </linearGradient>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <path class="cls-1" d="M153.62,300.79L40.07,462.87C27.79,480.39,.25,471.7,.25,450.31V31.68C.25,14.32,14.52,.25,32.12,.25h244.41c17.59,0,31.86,14.07,31.86,31.43V299.78h-.01v152.53c.01,21.39-27.53,30.08-39.8,12.56l-114.96-164.08Z"/>
+  </g>
+</svg>

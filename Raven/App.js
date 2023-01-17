@@ -1,5 +1,4 @@
-import 'react-native-gesture-handler'
-import React from 'react';
+import {React} from 'react';
 import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
 // import locations from './data/locations.json'
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,13 +10,18 @@ import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import {LoginScreen} from './src/screens/LoginScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Home from './src/assets/img/homeButton.svg';
-import Saved from './src/assets/img/savedButton.svg';
-import Nearby from './src/assets/img/nearbyButton.svg';
-import Badges from './src/assets/img/badgesButton.svg';
-import Search from './src/assets/img/searchIcon.svg'
 
+import HomepageScreen from './src/screens/HomepageScreen'
+import SavedScreen from './src/screens/SavedScreen'
+import NearbyScreen from './src/screens/NearbyScreen'
+import BadgesScreen from './src/screens/BadgesScreen'
 
+import HomeIcon from './src/assets/img/homeButton.svg';
+import SavedIcon from './src/assets/img/savedButton.svg';
+import NearbyIcon from './src/assets/img/nearbyButton.svg';
+import BadgesIcon from './src/assets/img/badgesButton.svg';
+
+//codigo Duda
 // const Stack = createNativeStackNavigator();
 
 // export default function App() {
@@ -142,62 +146,59 @@ const HomeScreen = ({navigation}) => {
     )
 }
 
-const SavedScreen = () => {
-  return(
-        <View>
-        </View>
-  )
-}
 
-const NearbyScreen = ({navigation}) => {
-  const styles = StyleSheet.create({
-      button: {
-          padding: 20,
-          borderRadius: 5,
-      },
-      buttonText: {
-          fontSize: 20,
-          color: '#fff',
-      }
-  })
-
-  return(
-      <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x: 1, y: 0}}
-      colors={['#07CDF9', '#5508D2']}
-      style={styles.button}
-      >
-      <Text style={styles.buttonText}>Get started</Text>
-      </LinearGradient>
-  )
-}
-
-const BadgesScreen = ({navigation}) => {
-  const styles = StyleSheet.create({
-      button: {
-          padding: 20,
-          borderRadius: 5,
-      },
-      buttonText: {
-          fontSize: 20,
-          color: '#fff',
-      }
-  })
-
-  return(
-      <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x: 1, y: 0}}
-      colors={['#07CDF9', '#5508D2']}
-      style={styles.button}
-      >
-      <Text style={styles.buttonText}>Get started</Text>
-      </LinearGradient>
-  )
-}
-
-
-
-
-// export default Homepage;
+export default function App() {
+    return (
+      <NavigationContainer>
+        <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+            tabBarActiveTintColor: '#A63A50',
+            tabBarInactiveTintColor: '#AB9B96',
+            headerShown: false
+            }}
+        >
+            <Tab.Screen
+                name="Home"
+                component={HomepageScreen}
+                options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: ({ color, size }) => (
+                    <HomeIcon/>
+                )
+                }}
+            />
+            <Tab.Screen
+                name="Saved"
+                component={SavedScreen} 
+                options={{
+                tabBarLabel: 'Saved',
+                tabBarIcon: ({ color, size }) => (
+                    <SavedIcon />
+                )
+                }}
+            />
+            <Tab.Screen
+                name="Nearby"
+                component={NearbyScreen}
+                options={{
+                tabBarLabel: 'Nearby',
+                tabBarIcon: ({ color, size }) => (
+                    <NearbyIcon />
+                )
+                }}
+            />
+            <Tab.Screen
+                name="Badges"
+                component={BadgesScreen}
+                options={{
+                tabBarLabel: 'Badges',
+                tabBarIcon: ({ color, size }) => (
+                    <BadgesIcon />
+                )
+                }}
+            />
+        </Tab.Navigator>
+      </NavigationContainer>
+    );
+  };

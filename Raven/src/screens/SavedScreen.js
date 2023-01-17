@@ -1,32 +1,12 @@
-import React, {useState} from 'react';
+import React from "react";
+import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
+// import Search from '../src/assets/img/searchIcon.svg'
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-import {
-    Dimensions,
-    ScrollView,
-    TextInput,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-  } from 'react-native';
-
-import LinearGradient from 'react-native-linear-gradient';
-
-const {width, height} = Dimensions.get('window');
-
-export function Saved({natigation}){
-
-
+const SavedScreen = ({navigation}) => {
     return(
-        <>
-            <LinearGradient
-                start={{x: 0, y: 0}} end={{x: 0, y: 1}}
-                colors={['#07CDF9','#5508D2']}
-                style={{height: height*0.55, width: width, padding: 15, paddingTop: 50,
-                        alignItems: 'center'}}>
-
-
-            </LinearGradient>
-        </>
+        <Text>saved</Text>
     )
 }
+
+export default SavedScreen

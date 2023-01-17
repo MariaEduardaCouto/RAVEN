@@ -9,7 +9,11 @@
     "ios": {
       "googleServicesFile": "./GoogleService-Info.plist"
     },
-    "plugins": ["@react-native-google-signin/google-signin"]
+    "plugins": ["@react-native-google-signin/google-signin"],
+    "assets": [
+      "./assets/fonts/Quicksand-Bold.ttf"
+    ]
+
   }
 }
 

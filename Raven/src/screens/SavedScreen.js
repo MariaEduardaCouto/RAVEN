@@ -1,0 +1,12 @@
+import React from "react";
+import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
+// import Search from '../src/assets/img/searchIcon.svg'
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+const SavedScreen = ({navigation}) => {
+    return(
+        <Text>saved</Text>
+    )
+}
+
+export default SavedScreen

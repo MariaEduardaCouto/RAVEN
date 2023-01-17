@@ -16,10 +16,14 @@ import SavedScreen from './src/screens/SavedScreen'
 import NearbyScreen from './src/screens/NearbyScreen'
 import BadgesScreen from './src/screens/BadgesScreen'
 
-import HomeIcon from './src/assets/img/homeButton.svg';
-import SavedIcon from './src/assets/img/savedButton.svg';
-import NearbyIcon from './src/assets/img/nearbyButton.svg';
-import BadgesIcon from './src/assets/img/badgesButton.svg';
+import ActiveHome from './src/assets/img/activeHome.svg';
+import ActiveSaved from './src/assets/img/activeSaved.svg';
+import ActiveNearby from './src/assets/img/activeNearby.svg';
+import ActiveBadges from './src/assets/img/activeBadges.svg';
+import InactiveHome from './src/assets/img/inactiveHome.svg';
+import InactiveSaved from './src/assets/img/inactiveSaved.svg';
+import InactiveNearby from './src/assets/img/inactiveNearby.svg';
+import InactiveBadges from './src/assets/img/inactiveBadges.svg';
 
 //codigo Duda
 // const Stack = createNativeStackNavigator();
@@ -53,9 +57,16 @@ export default function App() {
                 component={HomepageScreen}
                 options={{
                 tabBarLabel: 'Home',
-                tabBarIcon: ({ color, size }) => (
-                    <HomeIcon/>
-                )
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) {
+                        return <ActiveHome/>
+                    } else {
+                        return <InactiveHome/>
+                    }
+                }
+
+                    
+                
                 }}
             />
             <Tab.Screen
@@ -63,9 +74,13 @@ export default function App() {
                 component={SavedScreen} 
                 options={{
                 tabBarLabel: 'Saved',
-                tabBarIcon: ({ color, size }) => (
-                    <SavedIcon />
-                )
+                tabBarIcon: ({ focused, color, size,}) => {
+                    if (focused) {
+                        return <ActiveSaved/>
+                    } else {
+                        return <InactiveSaved/>
+                    }
+                }
                 }}
             />
             <Tab.Screen
@@ -73,9 +88,13 @@ export default function App() {
                 component={NearbyScreen}
                 options={{
                 tabBarLabel: 'Nearby',
-                tabBarIcon: ({ color, size }) => (
-                    <NearbyIcon />
-                )
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) {
+                        return <ActiveNearby/>
+                    } else {
+                        return <InactiveNearby/>
+                    }
+                }
                 }}
             />
             <Tab.Screen
@@ -83,9 +102,13 @@ export default function App() {
                 component={BadgesScreen}
                 options={{
                 tabBarLabel: 'Badges',
-                tabBarIcon: ({ color, size }) => (
-                    <BadgesIcon />
-                )
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) {
+                        return <ActiveBadges/>
+                    } else {
+                        return <InactiveBadges/>
+                    }
+                }
                 }}
             />
         </Tab.Navigator>

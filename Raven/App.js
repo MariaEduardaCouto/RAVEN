@@ -41,117 +41,61 @@ import InactiveBadges from './src/assets/img/inactiveBadges.svg';
 //       </NavigationContainer>
 //     )
 // }
-export default function HomepageScreen() {
-    return (
-      <NavigationContainer>
-        <Tab.Navigator
-            initialRouteName="Home"
-            screenOptions={{
-            tabBarActiveTintColor: '#A63A50',
-            tabBarInactiveTintColor: '#AB9B96',
-            headerShown: false
-            }}
-        >
-            <Tab.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{
-                tabBarLabel: 'Home',
-                tabBarIcon: ({ color, size }) => (
-                    <Home/>
-                )
-                }}
-            />
-            <Tab.Screen
-                name="Saved"
-                component={SavedScreen} 
-                options={{
-                tabBarLabel: 'Saved',
-                tabBarIcon: ({ color, size }) => (
-                    <Saved />
-                )
-                }}
-            />
-            <Tab.Screen
-                name="Nearby"
-                component={NearbyScreen}
-                options={{
-                tabBarLabel: 'Nearby',
-                tabBarIcon: ({ color, size }) => (
-                    <Nearby />
-                )
-                }}
-            />
-            <Tab.Screen
-                name="Badges"
-                component={BadgesScreen}
-                options={{
-                tabBarLabel: 'Badges',
-                tabBarIcon: ({ color, size }) => (
-                    <Badges />
-                )
-                }}
-            />
-        </Tab.Navigator>
-      </NavigationContainer>
-    );
-  };
-
-const HomeScreen = ({navigation}) => {
-    const styles = StyleSheet.create({
-        // button: {
-        //     padding: 20,
-        //     borderRadius: 5,
-        // },
-        // buttonText: {
-        //     fontSize: 20,
-        //     color: '#fff',
-        // }
-        searchInput: {
-            flex: 0.6,
-            paddingTop: 10,
-            paddingRight: 10,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            backgroundColor: '#fff',
-            color: '#424242',
-        },
-        searchIcon: {
-            padding: 10
-        },
-        searchSection: {
-            marginLeft:0.7,
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#fff',
-        }
-    })
-
-    return(
-        <ScrollView>
-            <View style={styles.searchSection}>
-                <TextInput
-                    style={styles.searchInput}
-                    autoCorrect={false}
-                    secureTextEntry
-                    placeholder="Search"
-                    onChangeText={this.onPasswordEntry}
-                    />
-                <Search style={styles.searchIcon} />
-            </View>
-        </ScrollView>
-        // <LinearGradient
-        // start={{x: 0, y: 0}}
-        // end={{x: 1, y: 0}}
-        // colors={['#07CDF9', '#5508D2']}
-        // style={styles.button}
-        // >
-        // <Text style={styles.buttonText}>Get started</Text>
-        // </LinearGradient>
-    )
-}
-
+// export default function HomepageScreen() {
+//     return (
+//       <NavigationContainer>
+//         <Tab.Navigator
+//             initialRouteName="Home"
+//             screenOptions={{
+//             tabBarActiveTintColor: '#A63A50',
+//             tabBarInactiveTintColor: '#AB9B96',
+//             headerShown: false
+//             }}
+//         >
+//             <Tab.Screen
+//                 name="Home"
+//                 component={HomeScreen}
+//                 options={{
+//                 tabBarLabel: 'Home',
+//                 tabBarIcon: ({ color, size }) => (
+//                     <Home/>
+//                 )
+//                 }}
+//             />
+//             <Tab.Screen
+//                 name="Saved"
+//                 component={SavedScreen} 
+//                 options={{
+//                 tabBarLabel: 'Saved',
+//                 tabBarIcon: ({ color, size }) => (
+//                     <Saved />
+//                 )
+//                 }}
+//             />
+//             <Tab.Screen
+//                 name="Nearby"
+//                 component={NearbyScreen}
+//                 options={{
+//                 tabBarLabel: 'Nearby',
+//                 tabBarIcon: ({ color, size }) => (
+//                     <Nearby />
+//                 )
+//                 }}
+//             />
+//             <Tab.Screen
+//                 name="Badges"
+//                 component={BadgesScreen}
+//                 options={{
+//                 tabBarLabel: 'Badges',
+//                 tabBarIcon: ({ color, size }) => (
+//                     <Badges />
+//                 )
+//                 }}
+//             />
+//         </Tab.Navigator>
+//       </NavigationContainer>
+//     );
+//   };
 
 export default function App() {
     return (

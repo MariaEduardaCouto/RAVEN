@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402.56 415.44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1d1d1b;
+        stroke-miterlimit: 10;
+        stroke-width: 22px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <ellipse class="cls-1" cx="201.28" cy="207.72" rx="190.28" ry="196.72"/>
+      <path class="cls-1" d="M76.61,356.34c-.11-2.1-.16-4.22-.16-6.34,0-68.94,55.89-124.83,124.83-124.83s124.83,55.89,124.83,124.83c0,2.08-.05,4.14-.15,6.19"/>
+      <circle class="cls-1" cx="201.28" cy="135.85" r="54.3"/>
+    </g>
+  </g>
+</svg>

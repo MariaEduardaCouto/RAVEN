@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.68 496.79">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000100;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 22px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <rect class="cls-1" x="53.13" y="227.18" width="50.91" height="182.39"/>
+      <rect class="cls-1" x="169.89" y="227.18" width="50.91" height="182.39"/>
+      <rect class="cls-1" x="286.64" y="227.18" width="50.91" height="182.39"/>
+      <rect class="cls-1" x="11" y="409.57" width="368.68" height="76.22"/>
+      <rect class="cls-1" x="11" y="145.46" width="368.68" height="81.73"/>
+      <polygon class="cls-1" points="195.34 11 11 145.46 379.68 145.46 195.34 11"/>
+    </g>
+  </g>
+</svg>

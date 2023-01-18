@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.68 390.68">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 22px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #1d1d1b;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-width: 14px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <line class="cls-1" x1="195.34" y1="379.68" x2="379.68" y2="379.68"/>
+      <circle class="cls-1" cx="195.34" cy="195.34" r="184.34"/>
+      <circle class="cls-2" cx="195.34" cy="91.34" r="47.3"/>
+      <circle class="cls-2" cx="195.34" cy="300.12" r="47.3"/>
+      <circle class="cls-2" cx="90.95" cy="195.73" r="47.3"/>
+      <circle class="cls-2" cx="299.73" cy="195.73" r="47.3"/>
+      <line class="cls-2" x1="195.34" y1="195.34" x2="195.35" y2="195.34"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.68 422.86">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 22px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #1d1d1b;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-width: 14px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <rect class="cls-1" x="11" y="363.37" width="368.68" height="48.5" rx="24.25" ry="24.25"/>
+      <path class="cls-1" d="M342.78,363.37c0-84.27-66-149.33-147.43-149.33S47.93,279.09,47.93,363.37"/>
+      <path class="cls-2" d="M177.69,215.07c.97-17.59,9.56-31.35,20.03-31.35s19.27,14.1,20.06,32"/>
+      <g>
+        <path class="cls-2" d="M110.32,69.18c20.76-27.42,16.67-47.68-7.41-62.18"/>
+        <path class="cls-2" d="M117.73,131.37c-22.8-18.31-25.26-39.03-7.41-62.18"/>
+      </g>
+      <g>
+        <path class="cls-2" d="M274.12,69.18c20.76-27.42,16.67-47.68-7.41-62.18"/>
+        <path class="cls-2" d="M281.53,131.37c-22.8-18.31-25.26-39.03-7.41-62.18"/>
+      </g>
+      <g>
+        <path class="cls-2" d="M193.1,69.18c20.76-27.42,16.67-47.68-7.41-62.18"/>
+        <path class="cls-2" d="M200.51,131.37c-22.8-18.31-25.26-39.03-7.41-62.18"/>
+      </g>
+    </g>
+  </g>
+</svg>

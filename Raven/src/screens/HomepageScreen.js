@@ -1,7 +1,21 @@
 import React from "react";
-import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Image, ImageBackground, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Image, ImageBackground, TouchableOpacity, Button} from 'react-native';
 import ProfileIcon from '../assets/img/profileIcon.svg'
 import LocationIcon from '../assets/img/locationIcon.svg'
+// import Monument from '../assets/img/Monument.svg'
+// import Museum from '../assets/img/Museum.svg'
+// import Nature from '../assets/img/Nature.svg'
+const Nature = require('../assets/img/Nature.svg');
+const Museums = require('../assets/img/Museum.svg');
+const Monuments = require('../assets/img/Monument.svg');
+// import MovieTheaters from '../assets/img/MovieTheaters.svg'
+// import Restaurant from '../assets/img/Restaurant.svg'
+// import Sunset from '../assets/img/Sunset.svg'
+// import Tourism from '../assets/img/Tourism.svg'
+// import Hiking from '../assets/img/Hiking.svg'
+// import Beach from '../assets/img/Beach.svg'
+// import Shopping from '../assets/img/Shopping.svg'
+import { SvgUri } from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
@@ -39,16 +53,59 @@ const HomepageScreen = ({navigation}) => {
             color: "#161616"
         }
     })
- 
-    const preferencesArray = ['Nature','Museums','Monuments','Movie theaters','Restaurants','Shoppings','Libraries/Bookshops','Hiking','Beach','Sunset'];
+
+    const preferencesArray = [
+        {
+            title: 'Nature',
+            image: <Nature/>
+        },
+        {
+            title: 'Museums',
+            image: <Museums/>
+        },
+        {
+            title: 'Monuments',
+            image: <Monuments/>
+        },
+        // {
+        //     title: 'Movie theaters',
+        //     image: '../assets/img/MovieTheaters.svg'
+        // },
+        // {
+        //     title: 'Restaurants',
+        //     image: '../assets/img/Restaurant.svg'
+        // },
+        // {
+        //     title: 'Shopping',
+        //     image: '../assets/img/Shopping.svg'
+        // },
+        // {
+        //     title: 'Hiking',
+        //     image: '../assets/img/Hiking.svg'
+        // },
+        // {
+        //     title: 'Sunset',
+        //     image: '../assets/img/Sunset.svg'
+        // },
+        // {
+        //     title: 'Beach',
+        //     image: '../assets/img/Beach.svg'
+        // },
+        // {
+        //     title: 'Tourism',
+        //     image: '../assets/img/Tourism.svg'
+        // }
+
+        // 'Shoppings','Libraries/Bookshops','Hiking','Beach','Sunset'
+    ];
 
     return(
-        
+
         <View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 30, marginTop: 40, alignItems:'center'}}>
                 <Text numberOfLines={2} lineBreakMode='wordWrap' style={styles.text}>
                     Explore the world{"\n"}
-                    like a
+                    like a RAVEN
                 </Text>
                 <TouchableOpacity >
                     <ProfileIcon style={{width:45,height:45}}/>
@@ -110,8 +167,11 @@ const HomepageScreen = ({navigation}) => {
                 }}
                     >
                         <View style={{flexDirection:'row', flexWrap:'nowrap'}}>
-                            <LocationIcon style={{width:20,height:'90%', alignSelf:'center', marginRight:10}}/>
-                            <Text numberOfLines={1} style={styles.txtCenter}>{preference}</Text>
+                            {/* <View>{preference.image}</View> */}
+                            {/* <Image source={{uri:'../src/assets/img/Beach.svg'}} style={{width:20,height:'90%', alignSelf:'center', marginRight:10}}/> */}
+                            <SvgUri width="100" height="100" uri={require(`../assets/img/Nature.svg`)} />
+                            {/* <SvgUri source={require('../assets/img/Nature.svg')} width="30" height="30"/> */}
+                            <Text numberOfLines={1} style={styles.txtCenter}>{preference.title}</Text>
                         </View>
                     </TouchableOpacity>
                 ))}

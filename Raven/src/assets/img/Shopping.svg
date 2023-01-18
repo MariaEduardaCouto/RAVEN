@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.68 492.35">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 22px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #1d1d1b;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-width: 14px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <polyline class="cls-1" points="337.68 141.36 53.02 141.36 11 481.34 379.68 481.34 379.68 481.35 337.68 141.36"/>
+      <path class="cls-2" d="M119.94,195.48v-54.12h0C121.67,66.61,154.77,7,195.34,7s73.67,59.61,75.41,134.36h0s0,54.12,0,54.12"/>
+    </g>
+  </g>
+</svg>

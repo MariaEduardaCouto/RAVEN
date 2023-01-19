@@ -5,10 +5,10 @@ import Swiper from 'react-native-swiper'
 
 
 import { useState, useEffect } from 'react';
-import Slide1 from '../assets/img/imgSlide1.svg'
-import Slide2 from '../assets/img/imgSlide2.svg'
-import Slide3 from '../assets/img/imgSlide3.svg'
-import Slide4 from '../assets/img/imgSlide4.svg'
+import Slide1 from '../assets/img/imgSlide1.png'
+import Slide2 from '../assets/img/imgSlide2.png'
+import Slide3 from '../assets/img/imgSlide3.png'
+import Slide4 from '../assets/img/imgSlide4.png'
 const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
                 maxWidth:'70%',
                 textAlign:'center',
                 lineHeight:23,
-                marginTop:80
+                marginTop:30
                 
             },
     activeDot:{ 
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
                 <View style={styles.slides}>
                     <Text style={styles.title}>Find interesting places</Text>
                         
-                            <Slide1 style={{height:30, width: 30, resizeMode:'contain'}}/>
+                            <Image style={{height:450, width: 450, resizeMode:'contain'}} source={Slide1}/>
                        
                         
                     <Text style={styles.subtitle}>Possibility of viewing a vast list of specific geographic points, as well as filtering them</Text>
@@ -122,18 +122,18 @@ const styles = StyleSheet.create({
 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Save your favorite locations</Text>
-                        <Slide2 style={{height:30, width: 30, resizeMode:'contain'}}/>
+                    <Image style={{height:450, width: 450, resizeMode:'contain'}} source={Slide2}/>
                     <Text style={styles.subtitle}>You can save whatever location in order to provide prior planning at a distance</Text>
                 </View>
 
                 <View style={styles.slides}>
                     <Text style={styles.title}>Reward system</Text>
-                        <Slide3 style={{height:30, width: 30, resizeMode:'contain'}}/>
+                    <Image style={{height:420, width: 420, resizeMode:'contain'}} source={Slide3}/>
                     <Text style={styles.subtitle}>You can get rewards and higher your progress by simply discovering new places and having fun</Text>
                 </View>
 
                 <View style={styles.slides}>
-                        <Slide4 style={{height:30, width: 30, resizeMode:'contain', marginTop:120}}/>
+                     <Image style={{height:200, width: 420,marginTop:200, resizeMode:'contain'}} source={Slide4}/>
                     <Text style={styles.subtitle}>That’s it. Are you ready to start?</Text>
                     <LinearGradient onPress={handleButtonGetStarted}
                     start={{x: 0, y: 0}}

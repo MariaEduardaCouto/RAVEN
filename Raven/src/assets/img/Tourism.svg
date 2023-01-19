@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378.33 358.79">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #1d1d1b;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 14px;
+      }
+
+      .cls-2 {
+        stroke: #000;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <g>
+      <rect class="cls-1" x="7" y="77.44" width="206.77" height="274.35"/>
+      <polyline class="cls-1" points="164.56 77.44 164.56 7 371.33 7 371.33 281.35 213.77 281.35"/>
+      <line class="cls-1" x1="213.77" y1="77.44" x2="164.56" y2="7"/>
+      <g>
+        <path class="cls-2" d="M174.27,190.18c-10.03,27.63-32.57,55.82-63.89,84.42-30.99-27.53-53.82-55.57-63.89-84.42h0c-1.62-5.74-2.48-11.79-2.48-18.05,0-36.66,29.72-66.37,66.37-66.37s66.37,29.72,66.37,66.37c0,6.25-.87,12.31-2.48,18.05"/>
+        <circle class="cls-2" cx="110.39" cy="162.39" r="25.21"/>
+      </g>
+      <line class="cls-2" x1="57.61" y1="317.46" x2="163.16" y2="317.46"/>
+      <line class="cls-2" x1="252.37" y1="187.6" x2="334.13" y2="187.6"/>
+      <line class="cls-2" x1="252.37" y1="214.62" x2="334.13" y2="214.62"/>
+      <rect class="cls-2" x="247.72" y="60.23" width="91.06" height="91.06"/>
+    </g>
+  </g>
+</svg>

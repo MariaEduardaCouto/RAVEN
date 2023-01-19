@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View, Dimensions, StyleSheet, TextInput, TouchableO
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import RavenIcon from '../assets/img/ravenIcon-05.svg';
+// import * as Font from 'expo-font';
 
 // import {
 //     GoogleSignin,
@@ -13,7 +14,9 @@ import RavenIcon from '../assets/img/ravenIcon-05.svg';
 let height = Dimensions.get('window').height;
 let width = Dimensions.get('window').width;
 
-
+// await Font.loadAsync({
+//     'Quicksand-Bold': require('./assets/fonts/Quicksand-Bold.ttf'),
+//   });
 
 export function LoginScreen({navigation}){
 
@@ -27,6 +30,8 @@ export function LoginScreen({navigation}){
 
   const handleSubmit = () => {
     alert('login' + email + password)
+
+    
 
     // login(email, password)
     //   .then(({ data }) => {
@@ -104,7 +109,7 @@ export function LoginScreen({navigation}){
                     />; */}
 
                     <Text style={Object.assign({}, styles.txtRegister, styles.txtCenter,{marginBottom:20})}>
-                        No account yet? <Text style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>Sign up now
+                        No account yet? <Text style={{ fontWeight: 'bold', textDecorationLine: 'underline' }} onPress={() => navigation.navigate('RegisterScreen')}>Sign up now
                         </Text>
                     </Text>
 
@@ -136,6 +141,7 @@ const styles = StyleSheet.create({
     txtTitle: {
         fontSize: 30,
         color: '#232323',
+        fontFamily:'Quicksand-Bold'
       },
     txtCenter: {
         textAlign: 'center',

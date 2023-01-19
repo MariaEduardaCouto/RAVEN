@@ -14,7 +14,7 @@ import {
 import CheckBox from '@react-native-community/checkbox';
 import LinearGradient from 'react-native-linear-gradient';
 
-export function Register({navigation}) {
+export function RegisterScreen({navigation}) {
   const [screen, setScreen] = useState(1);
 
   const [email, setEmail] = useState('');

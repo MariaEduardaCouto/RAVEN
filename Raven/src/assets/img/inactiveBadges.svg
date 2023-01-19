@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 446.55 507.76">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: url(#Gradiente_sem_nome_5);
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 35px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke: url(#Gradiente_sem_nome_19);
+      }
+
+      .cls-2, .cls-4 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-3 {
+        stroke: url(#Gradiente_sem_nome_30);
+      }
+
+      .cls-4 {
+        stroke: url(#Gradiente_sem_nome_19-2);
+        stroke-width: 22px;
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_30" data-name="Gradiente sem nome 30" x1="266.7" y1="212.36" x2="374.69" y2="-31.78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4d3375"/>
+      <stop offset="1" stop-color="#2898bf"/>
+    </linearGradient>
+    <linearGradient id="Gradiente_sem_nome_5" data-name="Gradiente sem nome 5" x1="128.37" y1="244.55" x2="128.37" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5e3f92"/>
+      <stop offset="1" stop-color="#2fbef0"/>
+    </linearGradient>
+    <linearGradient id="Gradiente_sem_nome_19" data-name="Gradiente sem nome 19" x1="157.23" y1="493.77" x2="289.95" y2="193.71" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5e3f92"/>
+      <stop offset="1" stop-color="#32bef0"/>
+    </linearGradient>
+    <linearGradient id="Gradiente_sem_nome_19-2" data-name="Gradiente sem nome 19" x1="184.86" y1="426.99" x2="252.78" y2="273.41" xlink:href="#Gradiente_sem_nome_19"/>
+  </defs>
+  <g id="Camada_1" data-name="Camada 1">
+    <polyline class="cls-3" points="223.04 158.76 284.64 17.5 419.83 17.5 323.88 237.55"/>
+    <polyline class="cls-1" points="122.65 237.55 26.72 17.5 161.91 17.5 240.69 198.22"/>
+    <circle class="cls-2" cx="223.59" cy="343.74" r="146.51"/>
+    <path class="cls-4" d="M233.28,279.6l14.24,28.84c1.58,3.2,4.64,5.43,8.18,5.94l31.83,4.63c8.91,1.29,12.46,12.24,6.02,18.52l-23.03,22.45c-2.56,2.49-3.73,6.09-3.12,9.61l5.44,31.7c1.52,8.87-7.79,15.63-15.75,11.45l-28.47-14.97c-3.16-1.66-6.94-1.66-10.11,0l-28.47,14.97c-7.97,4.19-17.28-2.58-15.75-11.45l5.44-31.7c.6-3.52-.56-7.12-3.12-9.61l-23.03-22.45c-6.44-6.28-2.89-17.23,6.02-18.52l31.83-4.63c3.54-.51,6.59-2.74,8.18-5.94l14.24-28.84c3.98-8.07,15.49-8.07,19.47,0Z"/>
+  </g>
+</svg>

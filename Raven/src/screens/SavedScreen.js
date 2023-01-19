@@ -12,8 +12,18 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import LinearGradient from 'react-native-linear-gradient';
 import LivrariaLello from '../assets/img/livrariaLello.svg'
 import PortugalFlag from '../assets/img/portugalFlag.svg'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const {width, height} = Dimensions.get('window');
+
+const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
+    return (
+      <View style={styles.container}>
+        <Icon name={iconName} size={iconSize} color={iconColor} />
+        <TextInput {...inputProps} style={styles.input} />
+      </View>
+    );
+  };
 
 const SavedScreen = ({navigation}) => {
     return(
@@ -29,6 +39,15 @@ const SavedScreen = ({navigation}) => {
 
                 <Text style={{fontWeight: 'bold', fontSize: 25, color:'white'}}>Your saved locations</Text>
 
+            </View>
+
+            <View style={{width: '100%', alignItems: 'center', justifyContent: 'center', flexDirection:'row'}}>
+            <IconInput
+                iconName="search"
+                iconSize={30}
+                iconColor="grey"
+                inputProps={{ placeholder: 'Search', fontSize:18, borderColor: 'red'}}
+                />
             </View>
 
 
@@ -101,6 +120,18 @@ const styles = StyleSheet.create({
     fRow: {
         flexDirection: 'row',
         marginBottom:10
+    },
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 30,
+        backgroundColor: 'white',
+        width: '85%',
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: 'gray',
+        padding: 10,
+        paddingLeft: 30
     },
 })
 

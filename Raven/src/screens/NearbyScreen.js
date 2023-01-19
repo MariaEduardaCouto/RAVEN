@@ -16,7 +16,7 @@ import Geolocation from '@react-native-community/geolocation';
 import { PermissionsAndroid } from 'react-native';
 
 
-export function NearbyScreen() {
+export default function NearbyScreen() {
 
     const [pos, setPos] = useState({
         latitude: 41.366732,

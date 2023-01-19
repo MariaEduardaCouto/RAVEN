@@ -1,5 +1,5 @@
 import {React} from 'react';
-import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, } from 'react-native';
+import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Dimensions } from 'react-native';
 // import locations from './data/locations.json'
 import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,7 +11,7 @@ import {LoginScreen} from './src/screens/LoginScreen';
 import {RegisterScreen} from './src/screens/RegisterScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
+const height = Dimensions.get('window').height
 import HomepageScreen from './src/screens/HomepageScreen'
 import SavedScreen from './src/screens/SavedScreen'
 import NearbyScreen from './src/screens/NearbyScreen'
@@ -103,10 +103,11 @@ export default function App() {
         <Tab.Navigator
             initialRouteName="Home"
             screenOptions={{
-            tabBarActiveTintColor: '#A63A50',
-            tabBarInactiveTintColor: '#AB9B96',
+            tabBarStyle: { height: height *0.075, padding:10, backgroundColor:'white'},
+            marginTop: 100,
             headerShown: false
             }}
+
         >
             <Tab.Screen
                 name="Home"

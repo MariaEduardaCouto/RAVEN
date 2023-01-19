@@ -41,12 +41,12 @@ const SavedScreen = ({navigation}) => {
 
             </View>
 
-            <View style={{width: '100%', alignItems: 'center', justifyContent: 'center', flexDirection:'row'}}>
+            <View style={{width: '100%', alignItems: 'center', justifyContent: 'center', flexDirection:'row', opacity: 0.3, borderColor:'transparent'}}>
             <IconInput
                 iconName="search"
                 iconSize={30}
-                iconColor="grey"
-                inputProps={{ placeholder: 'Search', fontSize:18, borderColor: 'red'}}
+                iconColor="white"
+                inputProps={{ placeholder: 'Search', fontSize:18, color:'white'}}
                 />
             </View>
 

@@ -27,20 +27,20 @@ import InactiveNearby from './src/assets/img/inactiveNearby.svg';
 import InactiveBadges from './src/assets/img/inactiveBadges.svg';
 
 // codigo Duda
-const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator();
 
-export default function App() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator screenOptions = {{headerShown: false}}>
-          <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
-          {/* <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-          <Stack.Screen name="RegisterScreen" component={RegisterScreen}/> */}
+// export default function App() {
+//     return (
+//       <NavigationContainer>
+//         <Stack.Navigator screenOptions = {{headerShown: false}}>
+//           {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/> */}
+//           <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+//           <Stack.Screen name="RegisterScreen" component={RegisterScreen}/>
 
-        </Stack.Navigator>
-      </NavigationContainer>
-    )
-}
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     )
+// }
 // export default function HomepageScreen() {
 //     return (
 //       <NavigationContainer>
@@ -97,101 +97,101 @@ export default function App() {
 //     );
 //   };
 
-// export default function App() {
-//     return (
-//       <NavigationContainer>
-//         <Tab.Navigator
-//             initialRouteName="Home"
-//             screenOptions={{
-//             tabBarActiveTintColor: '#A63A50',
-//             tabBarInactiveTintColor: '#AB9B96',
-//             headerShown: false
-//             }}
-//         >
-//             <Tab.Screen
-//                 name="Home"
-//                 component={HomepageScreen}
-//                 options={{
-//                 tabBarLabel: ({focused, color, size}) => {
-//                     if (focused) {
-//                         return <Text>Home</Text>
-//                     } else {
-//                         return <Text></Text>
-//                     } 
-//                 },
-//                 tabBarIcon: ({ focused, color, size }) => {
-//                     if (focused) {
-//                         return <ActiveHome/>
-//                     } else {
-//                         return <InactiveHome/>
-//                     }
-//                 }
+export default function App() {
+    return (
+      <NavigationContainer>
+        <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+            tabBarActiveTintColor: '#A63A50',
+            tabBarInactiveTintColor: '#AB9B96',
+            headerShown: false
+            }}
+        >
+            <Tab.Screen
+                name="Home"
+                component={HomepageScreen}
+                options={{
+                tabBarLabel: ({focused, color, size}) => {
+                    if (focused) {
+                        return <Text>Home</Text>
+                    } else {
+                        return <Text></Text>
+                    } 
+                },
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) {
+                        return <ActiveHome/>
+                    } else {
+                        return <InactiveHome/>
+                    }
+                }
 
                     
                 
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Saved"
-//                 component={SavedScreen} 
-//                 options={{
-//                     tabBarLabel: ({focused, color, size}) => {
-//                         if (focused) {
-//                             return <Text>Saved</Text>
-//                         } else {
-//                             return <Text></Text>
-//                         } 
-//                     },
-//                 tabBarIcon: ({ focused, color, size,}) => {
-//                     if (focused) {
-//                         return <ActiveSaved/>
-//                     } else {
-//                         return <InactiveSaved/>
-//                     }
-//                 }
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Nearby"
-//                 component={NearbyScreen}
-//                 options={{
-//                     tabBarLabel: ({focused, color, size}) => {
-//                         if (focused) {
-//                             return <Text>Nearby</Text>
-//                         } else {
-//                             return <Text></Text>
-//                         } 
-//                     },
-//                 tabBarIcon: ({ focused, color, size }) => {
-//                     if (focused) {
-//                         return <ActiveNearby/>
-//                     } else {
-//                         return <InactiveNearby/>
-//                     }
-//                 }
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Badges"
-//                 component={BadgesScreen}
-//                 options={{
-//                     tabBarLabel: ({focused, color, size}) => {
-//                         if (focused) {
-//                             return <Text>Badges</Text>
-//                         } else {
-//                             return <Text></Text>
-//                         } 
-//                     },
-//                 tabBarIcon: ({ focused, color, size }) => {
-//                     if (focused) {
-//                         return <ActiveBadges/>
-//                     } else {
-//                         return <InactiveBadges/>
-//                     }
-//                 }
-//                 }}
-//             />
-//         </Tab.Navigator>
-//       </NavigationContainer>
-//     );
-//   };
+                }}
+            />
+            <Tab.Screen
+                name="Saved"
+                component={SavedScreen} 
+                options={{
+                    tabBarLabel: ({focused, color, size}) => {
+                        if (focused) {
+                            return <Text>Saved</Text>
+                        } else {
+                            return <Text></Text>
+                        } 
+                    },
+                tabBarIcon: ({ focused, color, size,}) => {
+                    if (focused) {
+                        return <ActiveSaved/>
+                    } else {
+                        return <InactiveSaved/>
+                    }
+                }
+                }}
+            />
+            <Tab.Screen
+                name="Nearby"
+                component={NearbyScreen}
+                options={{
+                    tabBarLabel: ({focused, color, size}) => {
+                        if (focused) {
+                            return <Text>Nearby</Text>
+                        } else {
+                            return <Text></Text>
+                        } 
+                    },
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) {
+                        return <ActiveNearby/>
+                    } else {
+                        return <InactiveNearby/>
+                    }
+                }
+                }}
+            />
+            <Tab.Screen
+                name="Badges"
+                component={BadgesScreen}
+                options={{
+                    tabBarLabel: ({focused, color, size}) => {
+                        if (focused) {
+                            return <Text>Badges</Text>
+                        } else {
+                            return <Text></Text>
+                        } 
+                    },
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) {
+                        return <ActiveBadges/>
+                    } else {
+                        return <InactiveBadges/>
+                    }
+                }
+                }}
+            />
+        </Tab.Navigator>
+      </NavigationContainer>
+    );
+  };

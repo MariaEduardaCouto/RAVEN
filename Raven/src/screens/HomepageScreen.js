@@ -1,11 +1,11 @@
-import React from "react";
-import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Image, ImageBackground, TouchableOpacity, Button} from 'react-native';
+import React, { useState, useEffect } from "react";
+import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Image, ImageBackground, TouchableOpacity, Button, Dimensions, Animated, FlatList} from 'react-native';
 import ProfileIcon from '../assets/img/profileIcon.svg'
 import LocationIcon from '../assets/img/locationIcon.svg'
 // import Monument from '../assets/img/Monument.svg'
 // import Museum from '../assets/img/Museum.svg'
 // import Nature from '../assets/img/Nature.svg'
-const Nature = require('../assets/img/Nature.svg');
+import Nature from '../assets/img/Nature.svg';
 const Museums = require('../assets/img/Museum.svg');
 const Monuments = require('../assets/img/Monument.svg');
 // import MovieTheaters from '../assets/img/MovieTheaters.svg'
@@ -17,7 +17,10 @@ const Monuments = require('../assets/img/Monument.svg');
 // import Shopping from '../assets/img/Shopping.svg'
 import { SvgUri } from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+// import { FlatList } from "react-native-gesture-handler";
+const {width, height} = Dimensions.get('window')
+const ITEM_SIZE = width * 0.75
+const SPACER_ITEM_SIZE = (width - ITEM_SIZE) /2
 const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
     return (
       <View style={styles.container}>
@@ -26,7 +29,7 @@ const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
       </View>
     );
   };
-  
+
   const styles = StyleSheet.create({
         container: {
             flexDirection: 'row',
@@ -47,6 +50,34 @@ const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
 });
 
 const HomepageScreen = ({navigation}) => {
+    const [attractions, setAttractions] = useState()
+    
+    useEffect(() => {
+        const attractions = [
+            {
+                "name":"Torre dos Clérigos",
+                "address":"Porto, Portugal",
+                "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ae/18/17/torre-de-los-clerigos.jpg?w=1100&h=-1&s=1&cx=1250&cy=821&chk=v1_63aacc650342946a8f49"
+            },
+            {
+                "name":"Dom Luís I Bridge",
+                "address":"Porto, Portugal",
+                "image":"https://lp-cms-production.imgix.net/2019-06/16339ba77bf3814311c99bd4f8061aa9-ponte-de-dom-luis-i.jpg"
+            },
+            {
+                "name":"Livraria Lello",
+                "address":"Porto, Portugal",
+                "image":"https://i1.wp.com/mundodosviajantes.com/wp-content/uploads/2019/01/Lello-10.jpg?resize=572%2C763"
+            }
+        ]
+        setAttractions([{key: 'left-spacer'}, ...attractions, {key: 'right-spacer'}])
+
+    }, [])
+
+    const scrollX = React.useRef(new Animated.Value(0)).current
+    
+
+
     const styles = StyleSheet.create({
         text: {
             fontSize: 25,
@@ -57,15 +88,15 @@ const HomepageScreen = ({navigation}) => {
     const preferencesArray = [
         {
             title: 'Nature',
-            image: <Nature/>
+            image: '../assets/img/Nature.svg'
         },
         {
             title: 'Museums',
-            image: <Museums/>
+            image: '../assets/img/Museum.svg'
         },
         {
             title: 'Monuments',
-            image: <Monuments/>
+            image: '../assets/img/Monument.svg'
         },
         // {
         //     title: 'Movie theaters',
@@ -115,10 +146,10 @@ const HomepageScreen = ({navigation}) => {
             
             <View style={{width: '100%', alignItems: 'center', justifyContent: 'center', flexDirection:'row'}}>
                 <IconInput
-                iconName="search"
-                iconSize={30}
-                iconColor="grey"
-                inputProps={{ placeholder: 'Search', fontSize:18, borderColor: 'red'}}
+                    iconName="search"
+                    iconSize={30}
+                    iconColor="grey"
+                    inputProps={{ placeholder: 'Search', fontSize:18, borderColor: 'red'}}
                 />
                 {/* <Icon
                     name="search"
@@ -149,7 +180,7 @@ const HomepageScreen = ({navigation}) => {
             <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                style={{flexDirection:'row', width:'100%', marginVertical: 40}}
+                style={{flexDirection:'row', width:'100%', marginVertical: 30}}
                 >
                     {preferencesArray.map((preference) => (
                     <TouchableOpacity
@@ -169,27 +200,65 @@ const HomepageScreen = ({navigation}) => {
                         <View style={{flexDirection:'row', flexWrap:'nowrap'}}>
                             {/* <View>{preference.image}</View> */}
                             {/* <Image source={{uri:'../src/assets/img/Beach.svg'}} style={{width:20,height:'90%', alignSelf:'center', marginRight:10}}/> */}
-                            <SvgUri width="100" height="100" uri={require(`../assets/img/Nature.svg`)} />
+                            {/* <SvgUri width="100" height="100"  /> */}
+                            {/* <Nature style={{width:18,height:18}}/> */}
+                            <Nature style={{width:18,height:18}}/>
                             {/* <SvgUri source={require('../assets/img/Nature.svg')} width="30" height="30"/> */}
                             <Text numberOfLines={1} style={styles.txtCenter}>{preference.title}</Text>
                         </View>
                     </TouchableOpacity>
                 ))}
             </ScrollView>
-            <ScrollView>
-                <View style={{flexDirection:'column', width:300, height:400, alignSelf: 'center', alignItems:'center', borderRadius:30 , overflow:'hidden'}}>
-                    <ImageBackground source={{uri:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ae/18/17/torre-de-los-clerigos.jpg?w=1100&h=-1&s=1&cx=1250&cy=821&chk=v1_63aacc650342946a8f49'}} resizeMode="cover" style={{ height: '100%', width: '100%',justifyContent:'flex-end' }}>
-                        <View style={{backgroundColor:'rgba(255,255,255,0.9)', width:'100%',height:'17%', paddingLeft:19, paddingTop:10}}>
-                            <Text style={{fontSize:21,}}>Torre dos Clérigos</Text>
-                            <View style={{flexDirection:'row',align:'center'}}>
-                                <LocationIcon style={{width:18,height:18}}/>
-                                <Text style={{fontSize:15, marginLeft:7, }}>Porto, Portugal</Text>
-                            </View>
+            <Animated.FlatList
+                snapToInterval={ITEM_SIZE}
+                decelerationRate={0}
+                bounces={false}
+                showsHorizontalScrollIndicator={false}
+                horizontal
+                data={attractions}
+                keyExtractor={(item) => item.key}
+                contentContainerStyle={{
+                    alignItems: 'center'
+                }}
+                onScroll={Animated.event(
+                    [{ nativeEvent: {contentOffset: {x:scrollX}}}],
+                    {useNativeDriver: true}
+                )}
+                scrollEventThrottle={16}
+                renderItem={({item, index}) => {
+                    if (!item.image) {
+                        return <View style={{width: SPACER_ITEM_SIZE}}/>
+                    }
+                    const inputRange = [
+                        (index - 2) * ITEM_SIZE,
+                        (index - 1) * ITEM_SIZE,
+                        index * ITEM_SIZE
+                    ]
+                    const translateY = scrollX.interpolate({
+                        inputRange,
+                        outputRange: [0,-40,0]
+                    })
+                    return (
+                        <TouchableOpacity activeOpacity={1}>
+                        <View style={{width: ITEM_SIZE, marginTop: 50}}>
+                            <Animated.View style={{marginHorizontal: 25,height:400, alignItems:'center', borderRadius:35, overflow:'hidden', transform: [{translateY}]}}>
+                            
+                                <ImageBackground source={{uri:item.image}} resizeMode="cover" style={{ height: '100%', width: '100%',justifyContent:'flex-end' }}>
+                                    <View style={{backgroundColor:'rgba(255,255,255,0.9)', width:'120%',height:'17%', paddingLeft:19, paddingTop:10}}>
+                                        <Text style={{fontSize:21,}}>{item.name}</Text>
+                                        <View style={{flexDirection:'row',align:'center'}}>
+                                            <LocationIcon style={{width:18,height:18}}/>
+                                            <Text style={{fontSize:15, marginLeft:7, }}>{item.address}</Text>
+                                        </View>
+                                    </View>
+                                </ImageBackground>
+                            
+                            </Animated.View>
                         </View>
-                    </ImageBackground>
-                    
-                </View>
-            </ScrollView>
+                        </TouchableOpacity>
+                    )
+                }}
+            />
         </View>
         
     )

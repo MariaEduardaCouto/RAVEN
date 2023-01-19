@@ -3,31 +3,30 @@
   <defs>
     <style>
       .cls-1 {
-        stroke: url(#Gradiente_sem_nome_45);
-        stroke-width: 35px;
+        stroke: url(#Gradiente_sem_nome_45-2);
       }
 
       .cls-1, .cls-2 {
         fill: none;
         stroke-linecap: round;
         stroke-linejoin: round;
+        stroke-width: 35px;
       }
 
       .cls-2 {
-        stroke: url(#Gradiente_sem_nome_45-2);
-        stroke-width: 22px;
+        stroke: url(#Gradiente_sem_nome_45);
       }
     </style>
     <linearGradient id="Gradiente_sem_nome_45" data-name="Gradiente sem nome 45" x1="203.43" y1="507.98" x2="203.43" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#5e3f92"/>
       <stop offset="1" stop-color="#2fbef0"/>
     </linearGradient>
-    <linearGradient id="Gradiente_sem_nome_45-2" data-name="Gradiente sem nome 45" y1="257.75" x2="203.43" y2="94.52" xlink:href="#Gradiente_sem_nome_45"/>
+    <linearGradient id="Gradiente_sem_nome_45-2" data-name="Gradiente sem nome 45" y1="264.25" x2="203.43" y2="88.02" xlink:href="#Gradiente_sem_nome_45"/>
   </defs>
   <g id="Camada_1" data-name="Camada 1">
     <g>
-      <path class="cls-1" d="M382.4,253.99c-28.11,77.39-91.25,156.38-178.97,236.49C116.62,413.36,52.65,334.8,24.46,253.99h0c-4.53-16.07-6.96-33.03-6.96-50.56C17.5,100.74,100.74,17.5,203.43,17.5s185.93,83.24,185.93,185.93c0,17.52-2.42,34.48-6.95,50.55"/>
-      <circle class="cls-2" cx="203.43" cy="176.13" r="70.61"/>
+      <path class="cls-2" d="M382.4,253.99c-28.11,77.39-91.25,156.38-178.97,236.49C116.62,413.36,52.65,334.8,24.46,253.99h0c-4.53-16.07-6.96-33.03-6.96-50.56C17.5,100.74,100.74,17.5,203.43,17.5s185.93,83.24,185.93,185.93c0,17.52-2.42,34.48-6.95,50.55"/>
+      <circle class="cls-1" cx="203.43" cy="176.13" r="70.61"/>
     </g>
   </g>
 </svg>

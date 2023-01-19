@@ -17,20 +17,23 @@ const styles = StyleSheet.create({
         height: height,
         flexDirection: 'column',
         alignItems:'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        
+
     },
     wrapper: {
+        
     },
     slides: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: '#FDFDFD'
+      backgroundColor: '#FDFDFD',
     },
       title:{
                 color:'#000000',
                 fontSize:24,
                 fontWeight:'bold',
-                marginTop:100,
+                marginTop:70,
                 textAlign:'center',  
                 fontFamily:"Quicksand-Bold",
                 marginBottom:50
@@ -49,13 +52,13 @@ const styles = StyleSheet.create({
     activeDot:{ 
                 backgroundColor: 'transparent',
                 borderColor:'transparent', 
-                width: 14, 
-                height: 14, 
+                width: 15, 
+                height: 15, 
                 borderRadius: 7, 
                 marginLeft: 5, 
                 marginRight: 5, 
                 marginTop: 3, 
-                marginBottom: 3 ,
+                marginBottom: 30 ,
                 borderWidth:1 
             },
             dot:{ 
@@ -100,55 +103,62 @@ const styles = StyleSheet.create({
 
      
       return (
-        <View style={styles.allWreapper}>
-            <Swiper style={styles.wrapper} showsButtons={false} loop={false} index={0} autoplay={false} onMomentumScrollEnd={(e) => handleSlideChange(e)}
-                activeDot={<LinearGradient
-                    start={{x: 0, y: 0}}
-                    end={{x: 1, y: 0}}
-                    colors={['#07CDF9', '#5508D2']}
-                    style={styles.activeDot}
-                    ></LinearGradient>}
-                dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 6 ,borderWidth:1}} />}
-            >
+        <>
+            <View style={{backgroundColor:'white'}}>
+                <Text style={{ textAlign: 'right', color:'black', marginRight:20, fontWeight:'bold', fontSize:20, marginTop:10}} onPress={() => navigation.navigate('HomepageScreen')}>
+                    Skip
+                </Text>
+            </View>
+            <View style={styles.allWreapper}>
+                <Swiper style={styles.wrapper} showsButtons={false} loop={false} index={0} autoplay={false} onMomentumScrollEnd={(e) => handleSlideChange(e)}
+                    activeDot={<LinearGradient
+                        start={{x: 0, y: 0}}
+                        end={{x: 1, y: 0}}
+                        colors={['#07CDF9', '#5508D2']}
+                        style={styles.activeDot}
+                        ></LinearGradient>}
+                    dot={<View style={{ backgroundColor:'#c9cacc',borderColor:'transparent', width: 13, height: 13, borderRadius: 7, marginLeft: 5, marginRight: 5, marginTop: 3, marginBottom: 30 ,borderWidth:1}} />}
+                >
                 
-                <View style={styles.slides}>
-                    <Text style={styles.title}>Find interesting places</Text>
+                    
+                    <View style={styles.slides}>
+                        <Text style={styles.title}>Find interesting places</Text>
+                            
+                                <Image style={{height:450, width: 450, resizeMode:'contain'}} source={Slide1}/>
                         
-                            <Image style={{height:450, width: 450, resizeMode:'contain'}} source={Slide1}/>
-                       
-                        
-                    <Text style={styles.subtitle}>Possibility of viewing a vast list of specific geographic points, as well as filtering them</Text>
-                </View>
+                            
+                        <Text style={styles.subtitle}>Possibility of viewing a vast list of specific geographic points, as well as filtering them</Text>
+                    </View>
 
-                <View style={styles.slides}>
-                    <Text style={styles.title}>Save your favorite locations</Text>
-                    <Image style={{height:450, width: 450, resizeMode:'contain'}} source={Slide2}/>
-                    <Text style={styles.subtitle}>You can save whatever location in order to provide prior planning at a distance</Text>
-                </View>
+                    <View style={styles.slides}>
+                        <Text style={styles.title}>Save your favorite locations</Text>
+                        <Image style={{height:450, width: 450, resizeMode:'contain'}} source={Slide2}/>
+                        <Text style={styles.subtitle}>You can save whatever location in order to provide prior planning at a distance</Text>
+                    </View>
 
-                <View style={styles.slides}>
-                    <Text style={styles.title}>Reward system</Text>
-                    <Image style={{height:420, width: 420, resizeMode:'contain'}} source={Slide3}/>
-                    <Text style={styles.subtitle}>You can get rewards and higher your progress by simply discovering new places and having fun</Text>
-                </View>
+                    <View style={styles.slides}>
+                        <Text style={styles.title}>Reward system</Text>
+                        <Image style={{height:420, width: 420, resizeMode:'contain'}} source={Slide3}/>
+                        <Text style={styles.subtitle}>You can get rewards and higher your progress by simply discovering new places and having fun</Text>
+                    </View>
 
-                <View style={styles.slides}>
-                     <Image style={{height:200, width: 420,marginTop:200, resizeMode:'contain'}} source={Slide4}/>
-                    <Text style={styles.subtitle}>That’s it. Are you ready to start?</Text>
-                    <LinearGradient onPress={handleButtonGetStarted}
-                    start={{x: 0, y: 0}}
-                    end={{x: 1, y: 0}}
-                    colors={['#07CDF9', '#5508D2']}
-                    style={styles.button}
-                    >
-                        <Text style={{ textAlign: 'center', color:'white' }}>
-                            Get started
-                        </Text>
-                    </LinearGradient>
-                </View>
-            </Swiper>
-        </View>
-    
+                    <View style={styles.slides}>
+                        <Image style={{height:200, width: 420,marginTop:200, resizeMode:'contain'}} source={Slide4}/>
+                        <Text style={styles.subtitle}>That’s it. Are you ready to start?</Text>
+                        <LinearGradient 
+                        start={{x: 0, y: 0}}
+                        end={{x: 1, y: 0}}
+                        colors={['#07CDF9', '#5508D2']}
+                        style={styles.button}
+                        >
+                            <Text style={{ textAlign: 'center', color:'white' }} onPress={() => navigation.navigate('LoginScreen')}>
+                                Get started
+                            </Text>
+                        </LinearGradient>
+                    </View>
+                </Swiper>
+            </View>
+        </>
       )
             
   }

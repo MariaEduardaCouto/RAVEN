@@ -181,16 +181,6 @@ export default function ProfileScreen({navigation}) {
         setGender(sex)
     }
 
-    // function addPref(preference) {
-    //     if (chosenPref.includes(preference)) {
-    //         setChosenPref((current) =>
-    //             current.filter((pref) => pref !== preference)
-    //         )
-    //     } else {
-    //         setChosenPref(current => [...current, preference])
-    //     }
-    // }
-
     return (
         <>
             <LinearGradient
@@ -242,8 +232,7 @@ export default function ProfileScreen({navigation}) {
 
                     <ScrollView
                                 horizontal={true}
-                                style={Object.assign({}, styles.fRow, styles.W100,
-                                {marginLeft: 80},)}>
+                                style={Object.assign({}, styles.fRow, styles.W100,)}>
                         {preferencesArray.map((preference) => (
                             <View style={Object.assign({}, styles.inputPref, styles.my10, 
                                                     {padding: 10, marginRight: 10},)}

@@ -14,7 +14,7 @@ let width = Dimensions.get('window').width;
 //     'Quicksand-Bold': require('./assets/fonts/Quicksand-Bold.ttf'),
 //   });
 
-export function LoginScreen({navigation}){
+export function LoginScreen({navigation, route}){
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,23 +25,24 @@ export function LoginScreen({navigation}){
   const [emailWrong, setEmailWrong] = useState(false);
 
   const handleSubmit = () => {
-    alert('login' + email + password)
-
+    email == '' ? setEmailWrong(true) : setEmailWrong(false)
+    password == '' ? setPwWrong(true) : setPwWrong(false)
     
+    //alert(JSON.stringify(route))
 
-    // login(email, password)
-    //   .then(({ data }) => {
-    //     storeToken(data.access_token);
-    //     // navigate to protected routes
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    if (email == route.params.user.email && password == route.params.user.password) {
+        alert('wohoo')
+    } else {
+        alert('The e-mail and/or password are incorrects!')
+    }
+  }
 
+  function goBack() {
+    //setScreen(screen-1)
   }
 
     return (
-        <ScrollView>
+        <>
             <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
                 <View>
                     <View style={Object.assign({}, styles.W70, styles.jccAic)}>
@@ -114,7 +115,7 @@ export function LoginScreen({navigation}){
 
                 </View>
             </View>
-        </ScrollView>
+        </>
     )
 }
 

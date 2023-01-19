@@ -78,7 +78,10 @@ export function LoginScreen({navigation, route}){
                         start={{x: 0, y: 0}} end={{x: 1, y: 0}}
                         colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.my10)}>
                         <TouchableOpacity
-                            onPress={handleSubmit}
+                            onPress={() => {
+                                navigation.navigate('Main')
+                                {handleSubmit}
+                            }}
                             style={{backgroundColor: 'transparent'}}
                             type="submit">
                             <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>

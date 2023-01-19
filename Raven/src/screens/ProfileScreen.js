@@ -1,6 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Image,
   Dimensions,
@@ -20,6 +20,10 @@ import GoBackYT from "../assets/img/goBackYT.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
 
 export default function ProfileScreen({navigation}) {
+    useEffect(() => {
+        navigation.getParent().setOptions({ tabBarStyle: {display:'none'}})
+    })
+
     const [page, setPage] = useState('initial');
 
     const preferencesArray = ['Nature','Museums','Monuments','Movie theaters','Restaurants','Shoppings','Libraries/Bookshops','Hiking','Beach','Sunset'];
@@ -194,7 +198,10 @@ export default function ProfileScreen({navigation}) {
 
                     <GoBackYT
                         style={{resizeMode: 'contain', height: 30, width: 30}}
-                        onPress={()=>changePage('initial')}
+                        onPress={() => {
+                            navigation.getParent().setOptions({ tabBarStyle: {height: height *0.075, padding:10, backgroundColor:'white'}});
+                            navigation.goBack()}
+                        }
                     />
                 </View>
 

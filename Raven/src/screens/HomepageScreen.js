@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Image, ImageBackground, TouchableOpacity, Button, Dimensions, Animated, FlatList} from 'react-native';
 import ProfileIcon from '../assets/img/profileIcon.svg'
 import LocationIcon from '../assets/img/locationIcon.svg'
+import ProfileScreen from './ProfileScreen.js'
 // import Monument from '../assets/img/Monument.svg'
 // import Museum from '../assets/img/Museum.svg'
 // import Nature from '../assets/img/Nature.svg'
@@ -21,6 +22,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const {width, height} = Dimensions.get('window')
 const ITEM_SIZE = width * 0.75
 const SPACER_ITEM_SIZE = (width - ITEM_SIZE) /2
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
+
+
 const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
     return (
       <View style={styles.container}>
@@ -49,30 +54,43 @@ const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
         }
 });
 
-const HomepageScreen = ({navigation}) => {
+export default function MyStack() {
+    return (
+      <Stack.Navigator screenOptions = {{headerShown: false}} initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomepageScreen}/>
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
+    );
+}
+const HomepageScreen = ({navigation, route, goBack}) => {
     const [attractions, setAttractions] = useState()
-    
+
     useEffect(() => {
-        const attractions = [
-            {
-                "name":"Torre dos Clérigos",
-                "address":"Porto, Portugal",
-                "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ae/18/17/torre-de-los-clerigos.jpg?w=1100&h=-1&s=1&cx=1250&cy=821&chk=v1_63aacc650342946a8f49"
-            },
-            {
-                "name":"Dom Luís I Bridge",
-                "address":"Porto, Portugal",
-                "image":"https://lp-cms-production.imgix.net/2019-06/16339ba77bf3814311c99bd4f8061aa9-ponte-de-dom-luis-i.jpg"
-            },
-            {
-                "name":"Livraria Lello",
-                "address":"Porto, Portugal",
-                "image":"https://i1.wp.com/mundodosviajantes.com/wp-content/uploads/2019/01/Lello-10.jpg?resize=572%2C763"
-            }
-        ]
-        setAttractions([{key: 'left-spacer'}, ...attractions, {key: 'right-spacer'}])
+            let attractions = [
+                {
+                    "name":"Torre dos Clérigos",
+                    "address":"Porto, Portugal",
+                    "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ae/18/17/torre-de-los-clerigos.jpg?w=1100&h=-1&s=1&cx=1250&cy=821&chk=v1_63aacc650342946a8f49"
+                },
+                {
+                    "name":"Dom Luís I Bridge",
+                    "address":"Porto, Portugal",
+                    "image":"https://lp-cms-production.imgix.net/2019-06/16339ba77bf3814311c99bd4f8061aa9-ponte-de-dom-luis-i.jpg"
+                },
+                {
+                    "name":"Livraria Lello",
+                    "address":"Porto, Portugal",
+                    "image":"https://i1.wp.com/mundodosviajantes.com/wp-content/uploads/2019/01/Lello-10.jpg?resize=572%2C763"
+                }
+            ]
+            setAttractions([{key: 'left-spacer'}, ...attractions, {key: 'right-spacer'}])
+        
 
     }, [])
+
+    function changePage(page) {
+        navigation.navigate(page)
+    }
 
     const scrollX = React.useRef(new Animated.Value(0)).current
     
@@ -131,14 +149,13 @@ const HomepageScreen = ({navigation}) => {
     ];
 
     return(
-
         <View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 30, marginTop: 40, alignItems:'center'}}>
                 <Text numberOfLines={2} lineBreakMode='wordWrap' style={styles.text}>
                     Explore the world{"\n"}
                     like a RAVEN
                 </Text>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                     <ProfileIcon style={{width:45,height:45}}/>
                 </TouchableOpacity>
             </View>
@@ -263,5 +280,3 @@ const HomepageScreen = ({navigation}) => {
         
     )
 }
-
-export default HomepageScreen

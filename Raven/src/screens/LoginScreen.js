@@ -1,15 +1,11 @@
 import React, {useState} from 'react';
-import { SafeAreaView, Text, View, Dimensions, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, View, Dimensions, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import RavenIcon from '../assets/img/ravenIcon-05.svg';
-// import * as Font from 'expo-font';
 
-// import {
-//     GoogleSignin,
-//     GoogleSigninButton,
-//     statusCodes,
-//   } from '@react-native-google-signin/google-signin';
+
+
 
 let height = Dimensions.get('window').height;
 let width = Dimensions.get('window').width;
@@ -100,13 +96,16 @@ export function LoginScreen({navigation}){
                         colors={['#5508D2','#07CDF9']} style={{flex: 1, height: 1}}></LinearGradient> 
                     </View>
 
-                    {/* <GoogleSigninButton
-                        style={{ width: 192, height: 48 }}
-                        size={GoogleSigninButton.Size.Wide}
-                        color={GoogleSigninButton.Color.Dark}
-                        onPress={this._signIn}
-                        disabled={this.state.isSigninInProgress}
-                    />; */}
+                    <TouchableOpacity style={Object.assign({}, styles.button, styles.buttonTransp, styles.txtCenter)}
+                        // onPress={onPressButton}
+                        type="click">
+                        <View style={{flexDirection:'row', flexWrap:'nowrap'}}>
+                            <Image style={{width:25, height:25, marginLeft:10}}source={require('../assets/img/googleIcon.png')} />
+                            <Text style={styles.txtCenter}
+                                    onPress={()=>goBack()}>          Continue with Google
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
 
                     <Text style={Object.assign({}, styles.txtRegister, styles.txtCenter,{marginBottom:20})}>
                         No account yet? <Text style={{ fontWeight: 'bold', textDecorationLine: 'underline' }} onPress={() => navigation.navigate('RegisterScreen')}>Sign up now
@@ -179,6 +178,18 @@ const styles = StyleSheet.create({
       txtRegister:{
         color:"#454545",
         
-      }
+      },
+      buttonTransp: {
+        backgroundColor: 'transparent',
+        borderStyle: 'solid',
+        padding: 15,
+        borderRadius: 18,
+        borderWidth: 1,
+        borderColor: '#07CDF9',
+        backfaceVisibility:'',
+        marginBottom:50,
+        marginTop:-70,
+        color:'black'
+      },
 })
 

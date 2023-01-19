@@ -33,69 +33,70 @@ import InactiveBadges from './src/assets/img/inactiveBadges.svg';
 //     return (
 //       <NavigationContainer>
 //         <Stack.Navigator screenOptions = {{headerShown: false}}>
-//           {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/> */}
+//           <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+//           <Stack.Screen name="HomepageScreen" component={HomepageScreen}/>
 //           <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-//           <Stack.Screen name="RegisterScreen" component={RegisterScreen}/>
+//           {/* <Stack.Screen name="RegisterScreen" component={RegisterScreen}/> */}
 
 //         </Stack.Navigator>
 //       </NavigationContainer>
 //     )
 // }
-// export default function HomepageScreen() {
-//     return (
-//       <NavigationContainer>
-//         <Tab.Navigator
-//             initialRouteName="Home"
-//             screenOptions={{
-//             tabBarActiveTintColor: '#A63A50',
-//             tabBarInactiveTintColor: '#AB9B96',
-//             headerShown: false
-//             }}
-//         >
-//             <Tab.Screen
-//                 name="Home"
-//                 component={HomeScreen}
-//                 options={{
-//                 tabBarLabel: 'Home',
-//                 tabBarIcon: ({ color, size }) => (
-//                     <Home/>
-//                 )
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Saved"
-//                 component={SavedScreen} 
-//                 options={{
-//                 tabBarLabel: 'Saved',
-//                 tabBarIcon: ({ color, size }) => (
-//                     <Saved />
-//                 )
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Nearby"
-//                 component={NearbyScreen}
-//                 options={{
-//                 tabBarLabel: 'Nearby',
-//                 tabBarIcon: ({ color, size }) => (
-//                     <Nearby />
-//                 )
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Badges"
-//                 component={BadgesScreen}
-//                 options={{
-//                 tabBarLabel: 'Badges',
-//                 tabBarIcon: ({ color, size }) => (
-//                     <Badges />
-//                 )
-//                 }}
-//             />
-//         </Tab.Navigator>
-//       </NavigationContainer>
-//     );
-//   };
+export default function HomepageScreen() {
+    return (
+      <NavigationContainer>
+        <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+            tabBarActiveTintColor: '#A63A50',
+            tabBarInactiveTintColor: '#AB9B96',
+            headerShown: false
+            }}
+        >
+            <Tab.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: ({ color, size }) => (
+                    <Home/>
+                )
+                }}
+            />
+            <Tab.Screen
+                name="Saved"
+                component={SavedScreen} 
+                options={{
+                tabBarLabel: 'Saved',
+                tabBarIcon: ({ color, size }) => (
+                    <Saved />
+                )
+                }}
+            />
+            <Tab.Screen
+                name="Nearby"
+                component={NearbyScreen}
+                options={{
+                tabBarLabel: 'Nearby',
+                tabBarIcon: ({ color, size }) => (
+                    <Nearby />
+                )
+                }}
+            />
+            <Tab.Screen
+                name="Badges"
+                component={BadgesScreen}
+                options={{
+                tabBarLabel: 'Badges',
+                tabBarIcon: ({ color, size }) => (
+                    <Badges />
+                )
+                }}
+            />
+        </Tab.Navigator>
+      </NavigationContainer>
+    );
+  };
 
 export default function App() {
     return (

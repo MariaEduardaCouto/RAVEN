@@ -27,7 +27,7 @@ import InactiveNearby from './src/assets/img/inactiveNearby.svg';
 import InactiveBadges from './src/assets/img/inactiveBadges.svg';
 
 // codigo Duda
-// const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 // export default function App() {
 //     return (

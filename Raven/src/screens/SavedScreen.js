@@ -41,12 +41,12 @@ const SavedScreen = ({navigation}) => {
 
             </View>
 
-            <View style={{width: '100%', alignItems: 'center', justifyContent: 'center', flexDirection:'row', opacity: 0.3, borderColor:'transparent'}}>
+            <View style={{width: '100%', alignItems: 'center', justifyContent: 'center', flexDirection:'row', borderColor:'transparent'}}>
             <IconInput
                 iconName="search"
                 iconSize={30}
                 iconColor="white"
-                inputProps={{ placeholder: 'Search', fontSize:18, color:'white'}}
+                inputProps={{ placeholder: 'Search', fontSize:18, placeholderTextColor:'white'}}
                 />
             </View>
 
@@ -125,11 +125,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 30,
-        backgroundColor: 'white',
+        backgroundColor:'rgba(255,255,255,0.35)',
         width: '85%',
         borderRadius: 30,
-        borderWidth: 1,
-        borderColor: 'gray',
         padding: 10,
         paddingLeft: 30
     },

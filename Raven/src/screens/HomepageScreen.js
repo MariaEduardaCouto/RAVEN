@@ -58,7 +58,7 @@ export default function MyStack() {
     return (
       <Stack.Navigator screenOptions = {{headerShown: false}} initialRouteName="Home">
         <Stack.Screen name="Home" component={HomepageScreen}/>
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       </Stack.Navigator>
     );
 }
@@ -155,7 +155,7 @@ const HomepageScreen = ({navigation, route, goBack}) => {
                     Explore the world{"\n"}
                     like a RAVEN
                 </Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
                     <ProfileIcon style={{width:45,height:45}}/>
                 </TouchableOpacity>
             </View>

@@ -17,6 +17,18 @@ import LinearGradient from 'react-native-linear-gradient';
 export function RegisterScreen({navigation}) {
   const [screen, setScreen] = useState(1);
 
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: '',
+    day: '1',
+    month: 'january',
+    year: '1970',
+    username: '',
+    gender: 'female'
+  })
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');

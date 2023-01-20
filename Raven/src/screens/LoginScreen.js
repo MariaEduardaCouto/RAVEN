@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { SafeAreaView, Text, View, Dimensions, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView, Text, View, Dimensions, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
+// import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import RavenIcon from '../assets/img/ravenIcon-05.svg';
 

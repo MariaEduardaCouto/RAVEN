@@ -3,6 +3,7 @@ import {View, StyleSheet, Text, ScrollView, KeyboardAvoidingView, TextInput, Ima
 import ProfileIcon from '../assets/img/profileIcon.svg'
 import LocationIcon from '../assets/img/locationIcon.svg'
 import ProfileScreen from './ProfileScreen.js'
+import RouteDetailsScreen from './RouteDetailsScreen.js'
 // import Monument from '../assets/img/Monument.svg'
 // import Museum from '../assets/img/Museum.svg'
 // import Nature from '../assets/img/Nature.svg'
@@ -59,6 +60,7 @@ export default function MyStack({navigation, route}) {
       <Stack.Navigator screenOptions = {{headerShown: false}} initialRouteName="Home">
         <Stack.Screen name="Home" component={HomepageScreen}/>
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="RouteDetailsScreen" component={RouteDetailsScreen} />
       </Stack.Navigator>
     );
 }
@@ -68,16 +70,19 @@ const HomepageScreen = ({navigation, route}) => {
     useEffect(() => {
             let attractions = [
                 {
+                    "id":"0",
                     "name":"Torre dos Clérigos",
                     "address":"Porto, Portugal",
                     "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ae/18/17/torre-de-los-clerigos.jpg?w=1100&h=-1&s=1&cx=1250&cy=821&chk=v1_63aacc650342946a8f49"
                 },
                 {
+                    "id":"1",
                     "name":"Dom Luís I Bridge",
                     "address":"Porto, Portugal",
                     "image":"https://lp-cms-production.imgix.net/2019-06/16339ba77bf3814311c99bd4f8061aa9-ponte-de-dom-luis-i.jpg"
                 },
                 {
+                    "id":"2",
                     "name":"Livraria Lello",
                     "address":"Porto, Portugal",
                     "image":"https://i1.wp.com/mundodosviajantes.com/wp-content/uploads/2019/01/Lello-10.jpg?resize=572%2C763"
@@ -255,7 +260,7 @@ const HomepageScreen = ({navigation, route}) => {
                         outputRange: [0,-40,0]
                     })
                     return (
-                        <TouchableOpacity activeOpacity={1}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('RouteDetailsScreen', {id: item.id})}>
                         <View style={{width: ITEM_SIZE, marginTop: 50}}>
                             <Animated.View style={{marginHorizontal: 25,height:400, alignItems:'center', borderRadius:35, overflow:'hidden', transform: [{translateY}]}}>
                             

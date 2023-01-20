@@ -28,7 +28,7 @@ import GoBackYT from "../assets/img/goBackYT.svg"
 import GoBackYTLeft from "../assets/img/goBackYT_left.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
 
-export function RouteDetailsScreen({navigation}) {
+export default function RouteDetailsScreen({navigation, route}) {
     let height = Dimensions.get('window').height;
     let width = Dimensions.get('window').width;
     const [saved, setSaved] = useState(false);
@@ -195,7 +195,7 @@ export function RouteDetailsScreen({navigation}) {
 
     return (
         <>
-            <ImageBackground source={{uri: attractions[1].image}}
+            <ImageBackground source={{uri: attractions[route.params.id].image}}
                                 style={{height: height*0.55, width: width,
                                 padding: 15, paddingTop: 50, alignItems: 'center'}}>
 
@@ -204,7 +204,10 @@ export function RouteDetailsScreen({navigation}) {
 
                     <GoBackYTLeft
                         style={{resizeMode: 'contain', height: 30, width: 30}}
-                        onPress={()=>changePage('initial')}
+                        onPress={() => {
+                            navigation.getParent().setOptions({ tabBarStyle: {height: height *0.075, padding:10, backgroundColor:'white'}});
+                            navigation.goBack()}
+                        }
                     />
                 </View>
 
@@ -218,10 +221,10 @@ export function RouteDetailsScreen({navigation}) {
                         borderRadius: 30, padding: 30})}>
 
                 <Text style={{fontSize: 20, color: 'black'}}>
-                    {attractions[1].name}
+                    {attractions[route.params.id].name}
                 </Text>
                 <Text>
-                    {attractions[1].about}
+                    {attractions[route.params.id].about}
                 </Text>
 
 
@@ -233,10 +236,10 @@ export function RouteDetailsScreen({navigation}) {
 
                     <View style={Object.assign({}, styles.fColumn, {marginLeft: 5})}>
                         <Text style={Object.assign({}, {color: 'black'})}>
-                            {attractions[1].cityCountry}
+                            {attractions[route.params.id].cityCountry}
                         </Text>
                         <Text>
-                            {attractions[1].address}
+                            {attractions[route.params.id].address}
                         </Text>
                     </View>
 
@@ -246,8 +249,8 @@ export function RouteDetailsScreen({navigation}) {
                 <MapView
                     style={{width: '100%', height: '30%', marginTop: 10}}
                     region={{
-                        latitude: attractions[1].latitude,
-                        longitude: attractions[1].longitude,
+                        latitude: attractions[route.params.id].latitude,
+                        longitude: attractions[route.params.id].longitude,
                         latitudeDelta: 0.0,
                         longitudeDelta: 0.0421,
                     }}
@@ -255,11 +258,11 @@ export function RouteDetailsScreen({navigation}) {
 
                     <Marker
                         coordinate={{
-                            latitude: attractions[1].latitude,
-                            longitude: attractions[1].longitude
+                            latitude: attractions[route.params.id].latitude,
+                            longitude: attractions[route.params.id].longitude
                         }}
-                        title={attractions[1].name}
-                        description={attractions[1].about}
+                        title={attractions[route.params.id].name}
+                        description={attractions[route.params.id].about}
                         pinColor={"#5508D2"}
                     />
 

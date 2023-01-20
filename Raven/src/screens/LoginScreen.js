@@ -31,7 +31,6 @@ export function LoginScreen({navigation, route}){
     //alert(JSON.stringify(route))
 
     if (email == route.params.user.email && password == route.params.user.password) {
-        alert('wohoo')
         navigation.navigate('Main', {user: route.params.user, userPrefs: route.params.userPrefs});
     } else {
         alert('The e-mail and/or password are incorrects!')

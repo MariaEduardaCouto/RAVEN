@@ -6,9 +6,9 @@ import {
     StyleSheet,
     Text,
     View,
+    TouchableOpacity 
   } from 'react-native';
 // import Search from '../src/assets/img/searchIcon.svg'
-import { TouchableOpacity } from "react-native-gesture-handler";
 import LinearGradient from 'react-native-linear-gradient';
 import LivrariaLello from '../assets/img/livrariaLello.svg'
 import PortugalFlag from '../assets/img/portugalFlag.svg'

@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import LinearGradient from 'react-native-linear-gradient';
+import RavenIcon from '../assets/img/ravenIcon-05.svg';
 
 export function RegisterScreen({navigation}) {
   const [screen, setScreen] = useState(1);
@@ -123,7 +124,20 @@ export function RegisterScreen({navigation}) {
       display: 'flex',
       // flexShrink: ,
     },
-    
+    W70:{
+      width: width*0.7,
+  },
+  jccAic:{
+    justifyContent: 'center',
+    alignItems: 'center'
+},
+    RavenIconStyle:{
+      height:120,
+      width: 120,
+      resizeMode:'contain',
+      marginBottom:30
+
+    },
     containerPref: {
       // flexWrap: 'wrap',
       // flexGrow: 1,
@@ -267,13 +281,18 @@ export function RegisterScreen({navigation}) {
 
   if (screen == 1) {
     return (
-      <ScrollView>
-        <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
+      <View style={Object.assign({}, styles.WH100, styles.fColumn, styles.jccAic, styles.bgWhite)}>
           <View style={styles.W70}>
+          <View style={{marginBottom:40}}>
+          <View style={Object.assign({}, styles.W70, styles.jccAic)}>
+           <RavenIcon style={styles.RavenIconStyle}/>
+        </View>
             <Text style={Object.assign({}, styles.txtTitle, styles.txtCenter,
                         {fontWeight: 'bold'})}>
               Sign up to discover Raven's AR experience.
             </Text>
+          </View>
+          
   
             <View>
               <TextInput
@@ -333,8 +352,8 @@ export function RegisterScreen({navigation}) {
               </TouchableOpacity>
             </LinearGradient>
           </View>
-        </View>
-      </ScrollView>
+
+      </View>
     );
   }
 

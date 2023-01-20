@@ -47,6 +47,7 @@ const Main = () => {
         <Tab.Navigator
             initialRouteName="Home"
             screenOptions={{
+            tabBarHideOnKeyboard: true,
             tabBarStyle: { height: height *0.075, padding:10, backgroundColor:'white'},
             marginTop: 100,
             headerShown: false

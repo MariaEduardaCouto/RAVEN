@@ -54,7 +54,7 @@ const IconInput = ({ iconName, iconSize, iconColor, inputProps }) => {
         }
 });
 
-export default function MyStack() {
+export default function MyStack({navigation, route}) {
     return (
       <Stack.Navigator screenOptions = {{headerShown: false}} initialRouteName="Home">
         <Stack.Screen name="Home" component={HomepageScreen}/>
@@ -88,9 +88,6 @@ const HomepageScreen = ({navigation, route, goBack}) => {
 
     }, [])
 
-    function changePage(page) {
-        navigation.navigate(page)
-    }
 
     const scrollX = React.useRef(new Animated.Value(0)).current
     

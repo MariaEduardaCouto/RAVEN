@@ -207,6 +207,17 @@ export function RegisterScreen({navigation}) {
     } else if (screen == 2) {
 
       if (name != '' && username != '') {
+        setUser(
+          {email: email,
+          password: password,
+          confirmPassword: confirmPassword,
+          name: name,
+          day: day,
+          month: month,
+          year: year,
+          username: username,
+          gender: gender}
+        )
 
         setScreen(screen+1);
       } else {
@@ -214,6 +225,12 @@ export function RegisterScreen({navigation}) {
         username == '' ? setUsernameWrong(true) : setUsernameWrong(false)
       }
 
+    } else {
+      if (chosenPref.length >= 2) {
+        navigation.navigate('LoginScreen', {user: user, userPrefs: chosenPref});
+      } else {
+        alert('You have to choose at least 2 preferences!')
+      }
     }
   };
 
@@ -244,9 +261,9 @@ export function RegisterScreen({navigation}) {
     const {x, y, height, width} = e.nativeEvent.layout;
   }
 
-  function toHomepage() {
+  /* function toHomepage() {
     navigation.navigate('EditProfile', {username: username, password: password});
-  }
+  } */
 
   if (screen == 1) {
     return (
@@ -485,7 +502,7 @@ export function RegisterScreen({navigation}) {
                 colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.mt10)}>
 
                   <TouchableOpacity
-                    onPress={()=>toHomepage()}
+                    onPress={(e)=>onPressButton(e)}
                     type="click">
                       <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>
                         Continue
@@ -497,7 +514,7 @@ export function RegisterScreen({navigation}) {
                 onPress={onPressButton}
                 type="click">
                   <Text style={Object.assign({}, styles.button, styles.mt10, styles.buttonTransp, styles.txtCenter)}
-                        onPress={()=>goBack()}>
+                        onPress={skip=>{navigation.navigate('LoginScreen', {user: user, userPrefs: chosenPref})}}>
                     Skip for now
                   </Text>
               </TouchableOpacity>

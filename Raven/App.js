@@ -29,23 +29,21 @@ import InactiveBadges from './src/assets/img/inactiveBadges.svg';
 // codigo Duda
 const Stack = createNativeStackNavigator();
 
-// export default function App() {
-//     return (
-//       <NavigationContainer>
-//         <Stack.Navigator screenOptions = {{headerShown: false}}>
-//           <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
-//           <Stack.Screen name="HomepageScreen" component={HomepageScreen}/>
-//           <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-//           {/* <Stack.Screen name="RegisterScreen" component={RegisterScreen}/> */}
-
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     )
-// }
-
 export default function App() {
     return (
       <NavigationContainer>
+        <Stack.Navigator screenOptions = {{headerShown: false}}>
+            <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+            <Stack.Screen name="RegisterScreen" component={RegisterScreen}/>
+            <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+            <Stack.Screen name="Main" component={Main}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
+}
+
+const Main = () => {
+    return (
         <Tab.Navigator
             initialRouteName="Home"
             screenOptions={{
@@ -139,6 +137,5 @@ export default function App() {
                 }}
             />
         </Tab.Navigator>
-      </NavigationContainer>
     );
   };

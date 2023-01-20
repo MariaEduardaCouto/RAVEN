@@ -30,17 +30,6 @@ export function EditPreferencesScreen({navigation}) {
 
     const [chosenPref, setChosenPref] = useState([])
 
-    const [name, setName] = useState('');
-    const [day, setDay] = useState('1');
-    const [month, setMonth] = useState('january');
-    const [year, setYear] = useState('1970');
-    const [username, setUsername] = useState('');
-    const [gender, setGender] = useState('female')
-
-    const [currPass, setCurrPass] = useState('');
-    const [newPass, setNewPass] = useState('');
-    const [cNewPass, setCNewPass] = useState('');
-
     let height = Dimensions.get('window').height;
     let width = Dimensions.get('window').width;
 

@@ -57,6 +57,8 @@ export function RouteDetailsScreen({navigation}) {
             about: 'Historic bookstore in the center of Porto.',
             cityCountry:"Porto, Portugal",
             address:"R. das Carmelitas 144, 4050-161 Porto",
+            latitude: 41.146790,
+            longitude: -8.614900,
             image:"https://i1.wp.com/mundodosviajantes.com/wp-content/uploads/2019/01/Lello-10.jpg?resize=572%2C763"
         }
     ]

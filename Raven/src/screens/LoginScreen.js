@@ -32,6 +32,7 @@ export function LoginScreen({navigation, route}){
 
     if (email == route.params.user.email && password == route.params.user.password) {
         alert('wohoo')
+        navigation.navigate('Main', {user: route.params.user, userPrefs: route.params.userPrefs});
     } else {
         alert('The e-mail and/or password are incorrects!')
     }
@@ -78,10 +79,7 @@ export function LoginScreen({navigation, route}){
                         start={{x: 0, y: 0}} end={{x: 1, y: 0}}
                         colors={['#07CDF9','#5508D2']} style={Object.assign({}, styles.button, styles.txtWhite, styles.txtCenter, styles.my10)}>
                         <TouchableOpacity
-                            onPress={() => {
-                                navigation.navigate('Main')
-                                {handleSubmit}
-                            }}
+                            onPress={() => {handleSubmit()}}
                             style={{backgroundColor: 'transparent'}}
                             type="submit">
                             <Text style={Object.assign({}, styles.txtWhite, styles.txtCenter)}>

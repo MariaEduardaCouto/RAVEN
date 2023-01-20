@@ -17,9 +17,15 @@ import LinearGradient from 'react-native-linear-gradient';
 // import Svg  from 'react-native-svg';
 
 import GoBackYT from "../assets/img/goBackYT.svg"
+import GoBackYTLeft from "../assets/img/goBackYT_left.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
+import ProfileIcon from '../assets/img/profileIcon.svg'
+import Lock from "../assets/img/lock.svg"
+import Security from "../assets/img/security.svg"
+import Logout from "../assets/img/logout.svg"
+import Config from "../assets/img/config.svg"
 
-export default function ProfileScreen({navigation}) {
+export default function ProfileScreen({navigation, route}) {
     useEffect(() => {
         navigation.getParent().setOptions({ tabBarStyle: {display:'none'}})
     })
@@ -196,7 +202,7 @@ export default function ProfileScreen({navigation}) {
                 <View style={Object.assign({}, styles.W100,
                             {textAlign: 'left', paddingLeft: 40})}>
 
-                    <GoBackYT
+                    <GoBackYTLeft
                         style={{resizeMode: 'contain', height: 30, width: 30}}
                         onPress={() => {
                             navigation.getParent().setOptions({ tabBarStyle: {height: height *0.075, padding:10, backgroundColor:'white'}});
@@ -210,8 +216,8 @@ export default function ProfileScreen({navigation}) {
 
                     <View style={{backgroundColor: '#cdcdcd',
                                 width: width*0.25, height: width*0.25,
-                                borderRadius: 70}}>
-
+                                borderRadius: 70, justifyContent: 'center', alignItems: 'center'}}>
+                        <ProfileIcon style={{width:'80%', height: '80%'}}/>
                     </View>
 
                     <Text style={{fontWeight: 'bold', fontSize: 20}}>
@@ -274,10 +280,10 @@ export default function ProfileScreen({navigation}) {
                                 {justifyContent: 'space-between', alignItems: 'center'})}>
 
                         <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
-                            <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
                                         width: width*0.12, height: width*0.12,
-                                        }}>
-                                {/* POR IMAGEM */}
+                                        justifyContent: 'center', alignItems: 'center'}}>
+                                <Config style={{width:'60%', height:'60%'}} />
                             </View>
 
                             <Text style={Object.assign({}, 
@@ -304,8 +310,8 @@ export default function ProfileScreen({navigation}) {
                         <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
                             <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
                                         width: width*0.12, height: width*0.12,
-                                        }}>
-                                {/* POR IMAGEM */}
+                                        justifyContent: 'center', alignItems: 'center'}}>
+                                <Lock style={{width:'100%', height:'100%'}} />
                             </View>
 
                             <Text style={Object.assign({}, 
@@ -330,10 +336,10 @@ export default function ProfileScreen({navigation}) {
                                 {marginTop: 20},
                                 {justifyContent: 'space-between', alignItems: 'center'})}>
                         <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
-                            <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
                                         width: width*0.12, height: width*0.12,
-                                        }}>
-                                {/* POR IMAGEM */}
+                                        justifyContent: 'center', alignItems: 'center'}}>
+                                <Security style={{width:'60%', height:'60%'}} />
                             </View>
 
                             <Text style={Object.assign({}, 
@@ -354,10 +360,10 @@ export default function ProfileScreen({navigation}) {
                                 {marginTop: 20},
                                 {justifyContent: 'space-between', alignItems: 'center'})}>
                         <View style={Object.assign({}, styles.fRow, styles.jccAic)}>
-                            <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
+                        <View style={{backgroundColor: '#cdcdcd', borderRadius: 50,
                                         width: width*0.12, height: width*0.12,
-                                        }}>
-                                {/* POR IMAGEM */}
+                                        justifyContent: 'center', alignItems: 'center'}}>
+                                <Logout style={{width:'60%', height:'60%'}} />
                             </View>
 
                             <Text style={Object.assign({}, 

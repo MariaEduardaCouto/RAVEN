@@ -62,7 +62,7 @@ export default function MyStack({navigation, route}) {
       </Stack.Navigator>
     );
 }
-const HomepageScreen = ({navigation, route, goBack}) => {
+const HomepageScreen = ({navigation, route}) => {
     const [attractions, setAttractions] = useState()
 
     useEffect(() => {
@@ -152,6 +152,8 @@ const HomepageScreen = ({navigation, route, goBack}) => {
                     Explore the world{"\n"}
                     like a RAVEN
                 </Text>
+
+                {/* onPress={() => navigation.navigate('ProfileScreen', {user: route.params.user, userPrefs: route.params.userPrefs})} */}
                 <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
                     <ProfileIcon style={{width:45,height:45}}/>
                 </TouchableOpacity>
@@ -216,7 +218,7 @@ const HomepageScreen = ({navigation, route, goBack}) => {
                             {/* <Image source={{uri:'../src/assets/img/Beach.svg'}} style={{width:20,height:'90%', alignSelf:'center', marginRight:10}}/> */}
                             {/* <SvgUri width="100" height="100"  /> */}
                             {/* <Nature style={{width:18,height:18}}/> */}
-                            <Nature style={{width:18,height:18}}/>
+                            {/* <Nature style={{width:18,height:18}}/> */}
                             {/* <SvgUri source={require('../assets/img/Nature.svg')} width="30" height="30"/> */}
                             <Text numberOfLines={1} style={styles.txtCenter}>{preference.title}</Text>
                         </View>

@@ -199,7 +199,7 @@ export default function ProfileScreen({navigation}) {
                     <GoBackYT
                         style={{resizeMode: 'contain', height: 30, width: 30}}
                         onPress={() => {
-                            navigation.getParent().setOptions({ tabBarStyle: {display:'flex'}});
+                            navigation.getParent().setOptions({ tabBarStyle: {height: height *0.075, padding:10, backgroundColor:'white'}});
                             navigation.goBack()}
                         }
                     />

@@ -19,7 +19,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import GoBackYT from "../assets/img/goBackYT.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
 
-export function ChangePasswordScreen({navigation}) {
+export default function ChangePasswordScreen({navigation}) {
     const [page, setPage] = useState('initial');
 
     const preferencesArray = ['Nature','Museums','Monuments','Movie theaters','Restaurants','Shoppings','Libraries/Bookshops','Hiking','Beach','Sunset'];

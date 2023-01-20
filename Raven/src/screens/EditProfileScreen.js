@@ -19,7 +19,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import GoBackYT from "../assets/img/goBackYT.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
 
-export function EditProfileScreen({navigation}) {
+export default function EditProfileScreen({navigation}) {
     
     const [page, setPage] = useState('initial');
 

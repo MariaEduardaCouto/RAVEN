@@ -1,6 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     Image,
   Dimensions,
@@ -29,6 +29,9 @@ import GoBackYTLeft from "../assets/img/goBackYT_left.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
 
 export default function RouteDetailsScreen({navigation, route}) {
+    useEffect(() => {
+        navigation.getParent().setOptions({ tabBarStyle: {display:'none'}})
+    })
     let height = Dimensions.get('window').height;
     let width = Dimensions.get('window').width;
     const [saved, setSaved] = useState(false);

@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
       return (
         <>
             <View style={{backgroundColor:'white'}}>
-                <Text style={{ textAlign: 'right', color:'black', marginRight:20, fontWeight:'bold', fontSize:20, marginTop:10}} onPress={() => navigation.navigate('HomepageScreen')}>
+                <Text style={{ textAlign: 'right', color:'black', marginRight:20, fontWeight:'bold', fontSize:20, marginTop:10}} onPress={() => navigation.navigate('Main')}>
                     Skip
                 </Text>
             </View>

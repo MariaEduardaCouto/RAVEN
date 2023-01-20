@@ -24,10 +24,26 @@ import Lock from "../assets/img/lock.svg"
 import Security from "../assets/img/security.svg"
 import Logout from "../assets/img/logout.svg"
 import Config from "../assets/img/config.svg"
+import EditPreferencesScreen from "./EditPreferencesScreen.js"
+import EditProfileScreen from "./EditProfileScreen.js"
+import ChangePasswordScreen from "./ChangePasswordScreen.js"
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
 
-export default function ProfileScreen({navigation, route}) {
+export default function MyStack({navigation, route}) {
+    return (
+      <Stack.Navigator screenOptions = {{headerShown: false}} initialRouteName="ProfileScreen">
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen}/>
+        <Stack.Screen name="EditPreferencesScreen" component={EditPreferencesScreen} />
+        <Stack.Screen name="EditProfileScreen" component={EditProfileScreen} />
+        <Stack.Screen name="ChangePasswordScreen" component={ChangePasswordScreen} />
+      </Stack.Navigator>
+    );
+}
+
+function ProfileScreen({navigation, route}) {
     useEffect(() => {
-        navigation.getParent().setOptions({ tabBarStyle: {display:'none'}})
+        navigation.getParent().getParent().setOptions({ tabBarStyle: {display:'none'}})
     })
 
     const [page, setPage] = useState('initial');
@@ -205,7 +221,7 @@ export default function ProfileScreen({navigation, route}) {
                     <GoBackYTLeft
                         style={{resizeMode: 'contain', height: 30, width: 30}}
                         onPress={() => {
-                            navigation.getParent().setOptions({ tabBarStyle: {height: height *0.075, padding:10, backgroundColor:'white'}});
+                            navigation.getParent().getParent().setOptions({ tabBarStyle: {height: height *0.075, padding:10, backgroundColor:'white'}});
                             navigation.goBack()}
                         }
                     />
@@ -231,7 +247,7 @@ export default function ProfileScreen({navigation, route}) {
 
                         <TouchableOpacity   activeOpacity={1}
                                             style={Object.assign({}, styles.fRow, styles.W100, {alignItems: 'center'})}
-                                            onPress={()=>changePage('EditPreferencesScreen')}>
+                                            onPress={()=>navigation.navigate('EditPreferencesScreen')}>
                             <Text style={Object.assign({}, styles.txtWhite,
                                         {fontWeight: 'bold', fontSize:15})}>
                                 Edit preferences

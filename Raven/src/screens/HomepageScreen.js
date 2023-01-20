@@ -203,8 +203,9 @@ const HomepageScreen = ({navigation, route}) => {
                 showsHorizontalScrollIndicator={false}
                 style={{flexDirection:'row', width:'100%', marginVertical: 30}}
                 >
-                    {preferencesArray.map((preference) => (
+                    {preferencesArray.map((preference, index) => (
                     <TouchableOpacity
+                    key={index}
                     activeOpacity={1}
                     style={{
                     borderRadius: 20,

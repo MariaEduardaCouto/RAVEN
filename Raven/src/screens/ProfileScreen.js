@@ -262,8 +262,8 @@ function ProfileScreen({navigation, route}) {
                     <ScrollView
                                 horizontal={true}
                                 style={Object.assign({}, styles.fRow, styles.W100,)}>
-                        {preferencesArray.map((preference) => (
-                            <View style={Object.assign({}, styles.inputPref, styles.my10, 
+                        {preferencesArray.map((preference, index) => (
+                            <View key={index} style={Object.assign({}, styles.inputPref, styles.my10, 
                                                     {padding: 10, marginRight: 10},)}
                                                 >
                                                 {/* onPress={()=>addPref(preference)} */}

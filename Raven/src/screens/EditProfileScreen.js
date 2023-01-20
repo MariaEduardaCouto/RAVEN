@@ -18,6 +18,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import GoBackYT from "../assets/img/goBackYT.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
+import GoBackBL_left from "../assets/img/goBackBL_left.svg"
 
 export default function EditProfileScreen({navigation}) {
     
@@ -191,7 +192,7 @@ export default function EditProfileScreen({navigation}) {
 
                     <View style={Object.assign({}, styles.W100,
                                 {paddingLeft: 40,} )}>
-                        <GoBackBL
+                        <GoBackBL_left
                             style={{resizeMode: 'contain', height: 30, width: 30}}
                             onPress={()=>changePage('goBack')}
                         />

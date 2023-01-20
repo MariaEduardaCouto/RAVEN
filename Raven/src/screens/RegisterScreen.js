@@ -502,8 +502,8 @@ export function RegisterScreen({navigation}) {
             </Text>
 
             <View style={Object.assign({}, styles.fRow, styles.containerPref,)}>
-              {preferences.map((preference) => (
-                      <TouchableOpacity style={Object.assign({}, styles.inputPref, styles.my10, 
+              {preferences.map((preference, index) => (
+                      <TouchableOpacity key={index} style={Object.assign({}, styles.inputPref, styles.my10, 
                                               {padding: 15},
                                               {borderColor: chosenPref.includes(preference) ? '#07CDF9' : '#ccc'})}
                                         onPress={()=>addPref(preference)}>

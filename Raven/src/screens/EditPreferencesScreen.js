@@ -18,6 +18,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import GoBackYT from "../assets/img/goBackYT.svg"
 import GoBackBL from "../assets/img/goBackBL.svg"
+import GoBackBL_left from "../assets/img/goBackBL_left.svg"
 
 export default function EditPreferencesScreen({navigation}) {
     const [page, setPage] = useState('initial');
@@ -177,7 +178,7 @@ export default function EditPreferencesScreen({navigation}) {
                         {textAlign: 'left', backgroundColor: '#fdfdfd'})}>
                 <View style={Object.assign({}, styles.W100,
                             {paddingLeft: 40,} )}>
-                    <GoBackBL
+                    <GoBackBL_left
                         style={{resizeMode: 'contain', height: 30, width: 30}}
                         onPress={()=>changePage('goBack')}
                     />
@@ -200,9 +201,9 @@ export default function EditPreferencesScreen({navigation}) {
                                         {width: '70%', marginTop: 30, marginBottom: 30},
                                         {justifyContent: 'space-between'})}>
 
-                    {preferencesArray.map((preference) => (
+                    {preferencesArray.map((preference, index) => (
 
-                        <TouchableOpacity style={Object.assign({}, styles.inputPref, styles.my10, 
+                        <TouchableOpacity key={index} style={Object.assign({}, styles.inputPref, styles.my10, 
                                                 {padding: 15,}, {borderStyle: 'solid', borderWidth: 1},
                                                 {borderColor: chosenPref.includes(preference) ? '#07CDF9' : '#cdcdcd'})}
 
